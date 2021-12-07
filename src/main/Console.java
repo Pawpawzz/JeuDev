@@ -14,7 +14,7 @@ public class Console {
         }
     }
 
-    public static void nettoyerConsole() {
+    /*public static void nettoyerConsole() {
         try {
             String systemeExploitation = System.getProperty("os.name");
 
@@ -33,7 +33,7 @@ public class Console {
             System.out.println("Erreur : " + e.getMessage());
         }
 
-    }
+    }*/
 
     public static void afficherTableauChar(char[] t) {
         for(int i = 0; i < t.length; i++) {
@@ -52,19 +52,19 @@ public class Console {
 
         char[] barreChargement = {'░', '░', '░', '░', '░', '░', '░', '░', '░', '░'};
         try {
-            int etatActuel = 0;
-
             for(int i = 0; i < barreChargement.length; i++) {
                 barreChargement[i] = '█';
 
                 afficherTableauChar(barreChargement);
 
-                Thread.sleep(300);
+                Thread.sleep(30);
 
             }
 
         } catch(InterruptedException e) {
             System.out.println(e.getMessage());
         }
+
+        System.out.println();
     }
 }

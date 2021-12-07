@@ -3,13 +3,7 @@ package main;
 import java.util.Scanner;
 
 public class Main {
-<<<<<<< Updated upstream
 
-//	public static void lancerJeu() {
-//		//
-//		Terrain.GenererTerrain(2);
-//	}
-=======
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 
@@ -19,8 +13,9 @@ public class Main {
 
 	public static void lancerJeu() {
 		//
-		Terrain.GenererTerrain(2);
+		int [][] nouveauTerrain = Terrain.genererTerrain(10);
+
+		Terrain.afficherTerrain(nouveauTerrain);
 	}
->>>>>>> Stashed changes
 
 }

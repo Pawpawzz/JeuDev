@@ -15,7 +15,6 @@ public class Menu {
         int choice;
         System.out.println("Bienvenue dans RodgeLike");
 
-        Console.nettoyerConsole();
         do {
 
             System.out.println("1. Jouer\n2. Boutique\n3. Règles\n4. Quitter");
@@ -29,7 +28,8 @@ public class Menu {
                 System.out.print("Lancement du jeu");
                 System.out.println("\uD83D\uDD2B");
                 Console.afficherBarreChargement();
-                System.out.println();
+
+                Main.lancerJeu();
                 break;
             case 2:
                 break;
