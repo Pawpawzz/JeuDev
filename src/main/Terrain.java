@@ -2,6 +2,9 @@ package main;
 
 public class Terrain {
 
+
+
+
     public static void placerObstacles(int minObstacles, int maxObstacles, int[][] terrain) {
     	System.out.println(minObstacles + "" + maxObstacles);
     	for (int nbObstacle = 0; nbObstacle < (int)(Math.random()*((maxObstacles - minObstacles) + 1) + minObstacles); nbObstacle++) {
