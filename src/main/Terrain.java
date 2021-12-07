@@ -4,13 +4,13 @@ public class Terrain {
 
     public static void placerObstacles(int minObstacles, int maxObstacles, int[][] terrain) {
     	System.out.println(minObstacles + "" + maxObstacles);
-    	for (int i = 0; i < (int)(Math.random()*((maxObstacles - minObstacles) + 1) + minObstacles); i++) {
+    	for (int nbObstacle = 0; nbObstacle < (int)(Math.random()*((maxObstacles - minObstacles) + 1) + minObstacles); nbObstacle++) {
     		terrain[(int) (Math.random()*terrain.length)][(int) (Math.random()*terrain.length)] = 1;
     	}
     }
 
     public static void placerPieges(int minPieges, int maxPieges, int[][] terrain) {
-    	for (int i = 0; i < (int)(Math.random()*((maxPieges - minPieges) + 1) + minPieges); i++) {
+    	for (int nbPiege = 0; nbPiege < (int)(Math.random()*((maxPieges - minPieges) + 1) + minPieges); nbPiege++) {
     		terrain[(int) (Math.random()*terrain.length)][(int) (Math.random()*terrain.length)] = 2;
     	}
     }
@@ -26,10 +26,10 @@ public class Terrain {
     }
     
     public static void afficherTerrain(int[][] terrain) {
-    	for (int i = 0; i < terrain.length; i++) {
-    		for (int j = 0; j < terrain.length; j++) {
-    			if (terrain[i][j] != 0)
-    				System.out.print(terrain[i][j]);
+    	for (int ligne = 0; ligne < terrain.length; ligne++) {
+    		for (int colonne = 0; colonne < terrain.length; colonne++) {
+    			if (terrain[ligne][colonne] != 0)
+    				System.out.print(terrain[ligne][colonne]);
     			else
     				System.out.print(" ");
     			System.out.print("|");
