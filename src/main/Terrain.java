@@ -27,21 +27,10 @@ public class Terrain {
         return nouveauTerrain;
     }
     
-    public static void afficherTerrain(int[][] terrain) {
-    	for (int ligne = 0; ligne < terrain.length; ligne++) {
-    		for (int colonne = 0; colonne < terrain.length; colonne++) {
-    			if (terrain[ligne][colonne] != 0)
-    				System.out.print(terrain[ligne][colonne]);
-    			else
-    				System.out.print(" ");
-    			System.out.print("|");
-    		}
-    		System.out.println();
-    	}
-    }
+
     
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 		afficherTerrain(genererTerrain(20));
 
-	}
+	}*/
 }

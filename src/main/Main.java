@@ -1,5 +1,7 @@
 package main;
 
+import main.terrain.AffichageTerrain;
+
 import java.util.Scanner;
 
 public class Main {
@@ -15,7 +17,7 @@ public class Main {
 		//
 		int [][] nouveauTerrain = Terrain.genererTerrain(10);
 
-		Terrain.afficherTerrain(nouveauTerrain);
+		AffichageTerrain.afficherTerrain(nouveauTerrain);
 	}
 
 }
