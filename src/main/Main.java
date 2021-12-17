@@ -1,6 +1,9 @@
 package main;
 
-import main.terrain.AffichageTerrain;
+import main.affichage.AffichagePersonnage;
+import main.affichage.AffichageTerrain;
+import main.affichage.Caracteres;
+import main.affichage.Menu;
 
 import java.util.Scanner;
 
@@ -10,14 +13,17 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 
 		Menu.definirScanner(scanner);
-		Menu.afficherMenu();
+		Menu.afficherMenuPrincipal();
 	}
 
 	public static void lancerJeu() {
 		//
-		int [][] nouveauTerrain = Terrain.genererTerrain(10);
+		Caracteres.chargerCaracteres();
+		int [][] nouveauTerrain = Terrain.genererTerrain(4);
 
-		AffichageTerrain.afficherTerrain(nouveauTerrain);
+		AffichagePersonnage.afficherNombreVie(1, 3);
+		AffichageTerrain.afficher(nouveauTerrain);
+		Menu.afficherActionsJoueur();
 	}
 
 }

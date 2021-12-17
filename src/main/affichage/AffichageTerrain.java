@@ -1,4 +1,6 @@
-package main.terrain;
+package main.affichage;
+
+import main.affichage.Caracteres;
 
 public class AffichageTerrain {
     final static int LARGEUR_CASE = 6;
@@ -7,18 +9,19 @@ public class AffichageTerrain {
 
 
     public static void main (String[] args) {
-        String[][] map = {
-                {"1", " ", "1"},
-                {" ", "♣", " "},
-                {" ", " ", " "},
-                {" ", " ", " "},
-                {"2", "●", "d"}};
+        int[][] map = {
+                {0, 1, 2, 3},
+                {0, 1, 2, 3},
+                {0, 1, 2, 3}
+        };
 
         for(int ligne = 0; ligne < map.length; ligne++) {
             afficherCasesEnLigne(map[ligne].length, map.length, ligne, map);
         }
 
     }
+
+
 
     /**
      *
@@ -27,7 +30,7 @@ public class AffichageTerrain {
      * @param ligneActuelle la ligne contenant les données à traiter
      * @param carte Pour récupérer les caractères à afficher
      */
-    public static void afficherCasesEnLigne(int maxLargeur, int maxHauteur, int ligneActuelle, String[][] carte) {
+    public static void afficherCasesEnLigne(int maxLargeur, int maxHauteur, int ligneActuelle, int[][] carte) {
 
         int supprimerLigne = 0;
 
@@ -86,7 +89,8 @@ public class AffichageTerrain {
                             System.out.print("│");
                         else if((colonne % LARGEUR_CASE) == LARGEUR_CASE / 2)
                             //Permet de récupérer l'emplacement de la case
-                            System.out.print(carte[ligne + ligneActuelle-1][(colonne / maxLargeur)/2]);
+                            System.out.print(Caracteres.recupererCaractere(carte[ligne + ligneActuelle-1][(colonne / LARGEUR_CASE)]));
+                            //System.out.print(carte[ligne + ligneActuelle-1][(colonne / LARGEUR_CASE)]);
                         else
                             //On affiche du vide à côté des cases
                             System.out.print(" ");
@@ -100,8 +104,11 @@ public class AffichageTerrain {
             //System.out.println();
         }
     }
-    public static void afficherTerrain(int[][] terrain) {
-        for (int ligne = 0; ligne < terrain.length; ligne++) {
+    public static void afficher(int[][] terrain) {
+        for(int ligne = 0; ligne < terrain.length; ligne++) {
+            afficherCasesEnLigne(terrain[ligne].length, terrain.length, ligne, terrain);
+        }
+        /*for (int ligne = 0; ligne < terrain.length; ligne++) {
             for (int colonne = 0; colonne < terrain.length; colonne++) {
                 if (terrain[ligne][colonne] != 0)
                     System.out.print(terrain[ligne][colonne]);
@@ -110,7 +117,7 @@ public class AffichageTerrain {
                 System.out.print("|");
             }
             System.out.println();
-        }
+        }*/
     }
 }
 
