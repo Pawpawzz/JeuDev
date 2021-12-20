@@ -16,6 +16,16 @@ public class Terrain {
     		terrain[(int) (Math.random()*terrain.length)][(int) (Math.random()*terrain.length)] = 2;
     	}
     }
+    
+    public static void placerEnnemis(int[] tabEnnemis, int[][] terrain) {
+    	for (int Enemi: tabEnnemis) {
+    		int[] position = {(int) (Math.random()*terrain.length),(int) (Math.random()*terrain.length)};
+    		while (terrain[position[0]][position[1]] != 0)
+    			position[0] = (int) (Math.random()*terrain.length);
+    			position[1] = (int) (Math.random()*terrain.length);
+    		terrain[position[0]][position[1]] = Enemi;
+    	}
+    }
 
     public static int[][] genererTerrain(int longueur) {
         int [][] nouveauTerrain = new int[longueur][longueur];
