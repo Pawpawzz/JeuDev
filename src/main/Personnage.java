@@ -1,6 +1,18 @@
 package main;
 
 public class Personnage {
+
+	private static int _vie = 3;
+	private static int _maxVie = 3;
+
+	public static int recupererVie() {
+		return _vie;
+	}
+
+	public static int recuperMaxVie() {
+		return _maxVie;
+	}
+
 	/**
 	 * Renvoie un booléen qui valide ou non le déplacement dans la direction donn�e.
 	 * 

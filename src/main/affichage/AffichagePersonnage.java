@@ -6,7 +6,7 @@ public class AffichagePersonnage {
             if(i > nbVie)
                 System.out.print("♡");
             else
-                System.out.print("♥");
+                System.out.print("❤");
         }
 
         System.out.println();

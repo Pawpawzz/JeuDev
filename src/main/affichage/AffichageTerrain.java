@@ -2,10 +2,9 @@ package main.affichage;
 
 import main.affichage.Caracteres;
 
-public class AffichageTerrain {
+public class AffichageTerrain  {
     final static int LARGEUR_CASE = 6;
     final static int HAUTEUR_CASE = 3;
-
 
 
     public static void main (String[] args) {
@@ -20,7 +19,6 @@ public class AffichageTerrain {
         }
 
     }
-
 
 
     /**
@@ -90,10 +88,19 @@ public class AffichageTerrain {
                         else if((colonne % LARGEUR_CASE) == LARGEUR_CASE / 2)
                             //Permet de récupérer l'emplacement de la case
                             System.out.print(Caracteres.recupererCaractere(carte[ligne + ligneActuelle-1][(colonne / LARGEUR_CASE)]));
-                            //System.out.print(carte[ligne + ligneActuelle-1][(colonne / LARGEUR_CASE)]);
                         else
                             //On affiche du vide à côté des cases
-                            System.out.print(" ");
+
+                            if(Caracteres.estSurDeuxPlaces(carte[ligne + ligneActuelle-1][(colonne / LARGEUR_CASE)]))
+                                //On retire un espace si le caractère est trop gros
+                                if(colonne%LARGEUR_CASE == 2)
+                                    System.out.print(" ");
+                                else
+                                    System.out.print(" ");
+                            else
+                                System.out.print(" ");
+
+
 
                         break;
                 }

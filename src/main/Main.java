@@ -19,10 +19,10 @@ public class Main {
 	public static void lancerJeu() {
 		//
 		Caracteres.chargerCaracteres();
-		int [][] nouveauTerrain = Terrain.genererTerrain(4);
+		Terrain.genererTerrain(6);
 
-		AffichagePersonnage.afficherNombreVie(1, 3);
-		AffichageTerrain.afficher(nouveauTerrain);
+		AffichagePersonnage.afficherNombreVie(Personnage.recupererVie(), Personnage.recuperMaxVie());
+		AffichageTerrain.afficher(Terrain.recupererTerrain());
 		Menu.afficherActionsJoueur();
 	}
 
