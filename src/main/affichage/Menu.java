@@ -49,7 +49,7 @@ public class Menu {
         System.out.println("Bienvenue dans RodgeLike");
 
 
-        switch(saisieForcee("1. Jouer\n2. Boutique\n3. Règles\n4. Quitter", 1, 4)) {
+        switch(saisieForcee("1. Jouer\n2. Boutique\n3. Tutoriel\n4. Quitter", 1, 4)) {
             case 1:
                 System.out.print("Lancement du jeu");
                 System.out.println("\uD83D\uDD2B");

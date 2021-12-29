@@ -1,6 +1,6 @@
 package main;
 
-public class Personnage {
+public class Personnages {
 
 	private static int _vie = 3;
 	private static int _maxVie = 3;
@@ -13,17 +13,19 @@ public class Personnage {
 		return _maxVie;
 	}
 
+
 	/**
 	 * Renvoie un booléen qui valide ou non le déplacement dans la direction donn�e.
 	 * 
-	 * @param direction	direction du déplacement du joueur, caractère 'g', 'd', 'b' ou 'h'
-	 * @param position	position actuelle du joueur, double de type (x.y)
+	 * @param direction	direction du déplacement du personnage, caractère 'g', 'd', 'b' ou 'h'
+	 * @param position	position actuelle du personnage, tableau de longueur 2 de type [ligne, colonne]
 	 * @param terrain	tableau à 2 dimensions carré
+	 * 
 	 * @return			Booléen, true si le déplacement est valide, false sinon
 	 */
-	public static boolean deplacementPossible(char direction, double position, int[][] terrain) {
-		int posLigne = (int)position;
-		int posColonne = (int)(position%1)*10;
+	public static boolean deplacementPossible(char direction, int[] position, int[][] terrain) {
+		int posLigne = position[0];
+		int posColonne = position[1];
 		switch(direction) {
 		case 'g':
 			if (posColonne-1 < 0)
@@ -46,36 +48,42 @@ public class Personnage {
 	}
 	
 	/**
-	 * Déplace le joueur de une case par rapport à sa position et à la direction donnée, le tout sur un terrain spécifié
-	 * Attention: Ne vérifie pas la validité du déplacement avant de déplacer le joueur
+	 * Déplace le personnage de une case par rapport à sa position et à la direction donnée, le tout sur un terrain spécifié
+	 * Attention: Ne vérifie pas la validité du déplacement avant de déplacer le personnage
 	 * 
-	 * @param direction	direction du déplacement du joueur, caractère 'g', 'd', 'b' ou 'h'
-	 * @param position	position actuelle du joueur, double de type (x.y)
+	 * @param direction	direction du déplacement du personnage, caractère 'g', 'd', 'b' ou 'h'
+	 * @param position	position du personnage avant le déplacement, tableau de longueur 2 de type [ligne, colonne]
 	 * @param terrain	tableau à 2 dimensions carré
+	 * 
+	 * @return positionArrivee	position du personnage après le déplacement, tableau de longueur 2 de type [ligne, colonne]
 	 */
-	public static void deplacement (char direction, double position, int[][]terrain) {
-		int posLigne = (int)position;
-		int posColonne = (int)(position%1)*10;
+	public static int[] deplacementUneCase (char direction, int[] position, int[][]terrain) {
+		int posLigne = position[0];
+		int posColonne = position[1];
+		int[] positionArrivee = {posLigne, posColonne};
+		
 		switch(direction) {
 		case 'g':
 			terrain[posLigne][posColonne-1] = terrain[posLigne][posColonne];
+			positionArrivee[1] = posColonne-1;
 			break;
 		case 'd':
 			terrain[posLigne][posColonne+1] = terrain[posLigne][posColonne];
+			positionArrivee[1] = posColonne+1;
 			break;
 		case 'b':
 			terrain[posLigne-1][posColonne] = terrain[posLigne][posColonne];
+			positionArrivee[0] = posColonne-1;
 			break;
 		case 'h':
 			terrain[posLigne+1][posColonne] = terrain[posLigne][posColonne];
+			positionArrivee[0] = posColonne+1;
 			break;
 		}
 		terrain[posLigne][posColonne] = 0;
+		
+		return positionArrivee;
 	}
 	
-	
-	
-//	public static void main(String[] args) {
-//		System.out.println(deplacementPossible('z', 2.1, Terrain.genererTerrain(10)));
-//	}
+
 }
