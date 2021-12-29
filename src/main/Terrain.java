@@ -24,6 +24,14 @@ public class Terrain {
             _terrain[position[0]][position[1]] = Enemi;
     	}
     }
+    
+    public static void placerJoueur (int[][] terrain) {
+    	int[] position = {(int) (Math.random()*terrain.length),(int) (Math.random()*terrain.length)};
+    	while (terrain[position[0]][position[1]] != 0)
+			position[0] = (int) (Math.random()*terrain.length);
+			position[1] = (int) (Math.random()*terrain.length);
+		terrain[position[0]][position[1]] = 5;
+    }
 
     public static void genererTerrain(int longueur) {
         _terrain = new int[longueur][longueur];
