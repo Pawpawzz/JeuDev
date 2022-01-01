@@ -21,7 +21,7 @@ public class Main {
 		Caracteres.chargerCaracteres();
 		Terrain.genererTerrain(6);
 
-		AffichagePersonnage.afficherNombreVie(Personnage.recupererVie(), Personnage.recuperMaxVie());
+		AffichagePersonnage.afficherNombreVie(Personnages.recupererVie(), Personnages.recuperMaxVie());
 		AffichageTerrain.afficher(Terrain.recupererTerrain());
 		Menu.afficherActionsJoueur();
 	}

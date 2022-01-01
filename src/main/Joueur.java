@@ -1,5 +1,4 @@
 package main;
-
 public class Joueur {
 	/**
 	 * Déplace le joueur dans une direction donnée et s'arrête s'il y a un obstacle ou si la longueur donnée est atteinte, 
@@ -19,5 +18,20 @@ public class Joueur {
 			position = Personnages.deplacementUneCase(direction, position, terrain);
 			i += 1;
 		}
+	}
+	
+	public static int[] positionJoueur () {
+		int [][] terrain = Terrain.recupererTerrain();
+		int[] position = new int[2];
+		
+		for (int ligne = 0; ligne < terrain.length; ligne ++)
+			for (int colonne = 0; colonne < terrain.length; colonne++)
+				if (terrain[ligne][colonne] == 5) {
+					position[0] = ligne;
+					position[1] = colonne;
+					return position;
+				}
+		System.out.println("[ERREUR] Le joueur ne se trouve pas sur le plateau");
+		return position;
 	}
 }
