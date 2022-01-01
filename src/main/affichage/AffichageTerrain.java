@@ -1,5 +1,6 @@
 package main.affichage;
 
+import main.Terrain;
 import main.affichage.Caracteres;
 
 public class AffichageTerrain  {
@@ -111,7 +112,8 @@ public class AffichageTerrain  {
             //System.out.println();
         }
     }
-    public static void afficher(int[][] terrain) {
+    public static void afficher() {
+        int terrain[][] = Terrain.recupererTerrain();
         for(int ligne = 0; ligne < terrain.length; ligne++) {
             afficherCasesEnLigne(terrain[ligne].length, terrain.length, ligne, terrain);
         }

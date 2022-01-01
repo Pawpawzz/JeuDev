@@ -1,6 +1,9 @@
 package main;
 
 public class Terrain {
+    public final static int VALEUR_OBSTACLE = 1;
+    public final static int VALEUR_PIEGE = 2;
+
     private static int [][] _terrain;
 
     public static void placerObstacles(int minObstacles, int maxObstacles) {
@@ -11,21 +14,23 @@ public class Terrain {
 
     public static void placerPieges(int minPieges, int maxPieges) {
     	for (int nbPiege = 0; nbPiege < (int)(Math.random()*((maxPieges - minPieges) + 1) + minPieges); nbPiege++) {
-    		_terrain[(int) (Math.random()*_terrain.length)][(int) (Math.random()*_terrain.length)] = 10;
+    		_terrain[(int) (Math.random()*_terrain.length)][(int) (Math.random()*_terrain.length)] = VALEUR_PIEGE;
     	}
     }
     
     public static void placerEnnemis(int[] tabEnnemis) {
-    	for (int Enemi: tabEnnemis) {
+    	for (int Ennemi: tabEnnemis) {
     		int[] position = {(int) (Math.random()*_terrain.length),(int) (Math.random()*_terrain.length)};
     		while (_terrain[position[0]][position[1]] != 0)
     			position[0] = (int) (Math.random()*_terrain.length);
     			position[1] = (int) (Math.random()*_terrain.length);
-            _terrain[position[0]][position[1]] = Enemi;
+            _terrain[position[0]][position[1]] = Ennemi;
     	}
     }
     
-    public static void placerJoueur (int[][] terrain) {
+    public static void placerJoueur () {
+        int[][] terrain = Terrain.recupererTerrain();
+
     	int[] position = {(int) (Math.random()*terrain.length),(int) (Math.random()*terrain.length)};
     	while (terrain[position[0]][position[1]] != 0)
 			position[0] = (int) (Math.random()*terrain.length);
@@ -39,7 +44,7 @@ public class Terrain {
 
         placerObstacles((int)(0.4*(double)longueur),(int)((double)longueur));
         placerPieges((int)(0.7*(double)longueur),(int)(1.2*(double)longueur));
-
+        placerJoueur();
 
     }
 

@@ -1,6 +1,8 @@
 package main.affichage;
 
+import main.Joueur;
 import main.Main;
+import main.Terrain;
 
 import java.util.Scanner;
 
@@ -13,10 +15,19 @@ public class Menu {
     }
 
     private static int saisieForcee(String textAffche, int min, int max) {
-        int choix;
+        //-2 pour signifie que le choix est incorrecte par défaut
+        int choix =-2;
         do {
             System.out.println(textAffche);
-            choix = Integer.parseInt(scanner.nextLine());
+
+            String chaineCarChoix = scanner.nextLine();
+
+            //Permet d'empêcher de saisir des lettres ou toute autre caractère n'étant pas un nombre
+            if(estUnNombre(chaineCarChoix)) {
+                choix = Integer.parseInt(chaineCarChoix);
+            }
+
+
         } while(choix > max || choix < min);
 
         return choix;
@@ -67,6 +78,7 @@ public class Menu {
     }
 
     public static void afficherActionsJoueur() {
+        AffichageTerrain.afficher();
         switch (saisieForcee("1. Se déplacer", 1, 3)) {
             case 1:
 
@@ -76,9 +88,13 @@ public class Menu {
                     deplacement = scanner.nextLine();
                 }
                 while(!deplacementSyntaxeValide(deplacement));
+                Joueur.deplacement(deplacement);
+
 
 
         }
+
+        Menu.afficherActionsJoueur();
     }
 
 

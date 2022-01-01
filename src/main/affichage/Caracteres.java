@@ -1,14 +1,23 @@
 package main.affichage;
 
+import main.Terrain;
+
 public class Caracteres {
     final static int CARACTERES_A_CODER = 255;
     static String[] tableauCaracteres = new String[CARACTERES_A_CODER];
     static boolean[] tableauTailleCaracteres = new boolean[CARACTERES_A_CODER];
 
     public static void chargerCaracteres() {
+
+        //Enregistrement des obstacles et des pieges
         Caracteres.enregistrerCaractere(0, " ");
-        Caracteres.enregistrerCaractere(1, "*");
-        Caracteres.enregistrerCaractere(2, "P");
+
+        Caracteres.enregistrerCaractere(Terrain.VALEUR_OBSTACLE, "◻️", true);
+        Caracteres.enregistrerCaractere(Terrain.VALEUR_PIEGE, "🕸️", true);
+        //Caracteres.enregistrerCaractere(2, "P");
+
+        Caracteres.enregistrerCaractere(5, "P");
+
         //Ennemis situé entre 10 et 20
         Caracteres.enregistrerCaractere(10, "\uD83D\uDC2E", true);
         Caracteres.enregistrerCaractere(11, "\uD83C\uDFF9", true);

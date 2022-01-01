@@ -1,21 +1,25 @@
 package main;
+
+import main.outils.Convertisseur;
+
 public class Joueur {
 	/**
 	 * Déplace le joueur dans une direction donnée et s'arrête s'il y a un obstacle ou si la longueur donnée est atteinte, 
 	 * le tout sur un terrain spécifié
-	 * 
-	 * @param direction	direction du déplacement du personnage, caractère 'g', 'd', 'b' ou 'h'
-	 * @param position	position du personnage avant le déplacement, tableau de longueur 2 de type [ligne, colonne]
-	 * @param terrain	tableau à 2 dimensions carré
 	 */
-	public static void deplacement (String directionLongueur, int[] position, int[][]terrain) {
+	public static void deplacement (String directionLongueur) {
+		int [][] terrain = Terrain.recupererTerrain();
+		int [] position = Joueur.positionJoueur();
+
 		char direction = directionLongueur.charAt(0);
-		int longueur = directionLongueur.charAt(1);
+		//Convertir pour prendre en compte les valeurs à deux chiffres
+		int longueur = Convertisseur.recupererValeurNumerique(directionLongueur.substring(1));
 		int i = 0;
-		
-		
-		while (Personnages.deplacementPossible(direction, position, terrain) && i < longueur) {
-			position = Personnages.deplacementUneCase(direction, position, terrain);
+
+		System.out.println("La longueur est de " + longueur);
+		while (Personnages.deplacementPossible(direction, position) && i < longueur) {
+			System.out.println("Le déplacement est possible");
+			position = Personnages.deplacementUneCase(direction, position);
 			i += 1;
 		}
 	}
@@ -34,4 +38,5 @@ public class Joueur {
 		System.out.println("[ERREUR] Le joueur ne se trouve pas sur le plateau");
 		return position;
 	}
+
 }
