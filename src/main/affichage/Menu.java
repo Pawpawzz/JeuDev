@@ -1,5 +1,6 @@
 package main.affichage;
 
+import main.ControlleurCombat;
 import main.Joueur;
 import main.Main;
 import main.Terrain;
@@ -66,25 +67,26 @@ public class Menu {
                 System.out.println("\uD83D\uDD2B");
                 //Console.afficherBarreChargement();
 
-                Main.lancerJeu();
+                ControlleurCombat.lancerCombat();
                 break;
             case 2:
                 break;
             case 3:
                 break;
             case 4:
-                break;
+                return;
         }
     }
 
     public static void afficherActionsJoueur() {
+        AffichagePersonnage.afficherNombreVie();
         AffichageTerrain.afficher();
         switch (saisieForcee("1. Se déplacer", 1, 3)) {
             case 1:
 
                 String deplacement;
                 do {
-                    System.out.print("Format : nx (n = {g, d, h, v}, x est un nombre)");
+                    System.out.print("Format : nx (n = {g, d, h, v}, x est un nombre) :");
                     deplacement = scanner.nextLine();
                 }
                 while(!deplacementSyntaxeValide(deplacement));
@@ -94,7 +96,6 @@ public class Menu {
 
         }
 
-        Menu.afficherActionsJoueur();
     }
 
 

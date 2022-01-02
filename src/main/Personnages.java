@@ -9,6 +9,17 @@ public class Personnages {
 		return _vie;
 	}
 
+	public static void modifierVie(int nbVie) {
+		int nbVies = _vie + nbVie;
+		if(nbVies > _maxVie) {
+			nbVies = _maxVie;
+		} else if (nbVies < 0) {
+			nbVies = 0;
+		}
+
+		_vie = nbVies;
+	}
+
 	public static int recuperMaxVie() {
 		return _maxVie;
 	}

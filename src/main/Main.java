@@ -13,7 +13,11 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 
+
 		Menu.definirScanner(scanner);
+		Caracteres.chargerCaracteres();
+
+
 		Menu.afficherMenuPrincipal();
 
 	}
@@ -23,7 +27,7 @@ public class Main {
 		Caracteres.chargerCaracteres();
 		Terrain.genererTerrain(6);
 
-		AffichagePersonnage.afficherNombreVie(Personnages.recupererVie(), Personnages.recuperMaxVie());
+
 		Menu.afficherActionsJoueur();
 	}
 
