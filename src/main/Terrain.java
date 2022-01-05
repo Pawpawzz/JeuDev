@@ -12,6 +12,7 @@ public class Terrain {
     	}
     }
 
+
     public static void placerPieges(int minPieges, int maxPieges) {
     	for (int nbPiege = 0; nbPiege < (int)(Math.random()*((maxPieges - minPieges) + 1) + minPieges); nbPiege++) {
     		_terrain[(int) (Math.random()*_terrain.length)][(int) (Math.random()*_terrain.length)] = VALEUR_PIEGE;

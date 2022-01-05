@@ -1,5 +1,7 @@
 package main;
 
+import main.affichage.AffichageTerrain;
+
 public class Personnages {
 
 	private static int _vie = 3;
@@ -74,30 +76,29 @@ public class Personnages {
 
 		int posLigne = position[0];
 		int posColonne = position[1];
-		int[] positionArrivee = {posLigne, posColonne};
 
-		System.out.println("Je me déplace " + direction);
+		int ancienneValeur = terrain[posLigne][posColonne];
+
+		terrain[posLigne][posColonne] = 0;
+
 		switch(direction) {
 		case 'g':
-			terrain[posLigne][posColonne-1] = terrain[posLigne][posColonne];
-			positionArrivee[1] = posColonne-1;
+			posColonne -= 1;
 			break;
 		case 'd':
-			terrain[posLigne][posColonne+1] = terrain[posLigne][posColonne];
-			positionArrivee[1] = posColonne+1;
+			posColonne += 1;
 			break;
 		case 'b':
-			terrain[posLigne+1][posColonne] = terrain[posLigne][posColonne];
-			positionArrivee[0] = posColonne+1;
+			posLigne +=1;
 			break;
 		case 'h':
-			terrain[posLigne-1][posColonne] = terrain[posLigne][posColonne];
-			positionArrivee[0] = posColonne-1;
+			posLigne -= 1;
 			break;
 		}
-		terrain[posLigne][posColonne] = 0;
-		
-		return positionArrivee;
+
+		terrain[posLigne][posColonne] = ancienneValeur;
+		//AffichageTerrain.afficher();
+		return new int[] {posLigne, posColonne};
 	}
 	
 

@@ -67,8 +67,8 @@ public class OutilsEntites {
         int differenceAbscisses = sourcePosition[0] - ciblePosition[0];
         int differenceOrdonnees = sourcePosition[1] - ciblePosition[1];
 
-        int valAbsX = Mathematiques.valAbs(sourcePosition[0] - ciblePosition[0]);
-        int valAbsY = Mathematiques.valAbs(sourcePosition[1] - ciblePosition[1]);
+        int valAbsX = Mathematiques.valAbs(differenceAbscisses);
+        int valAbsY = Mathematiques.valAbs(differenceOrdonnees);
 
         System.out.println("Distance x " + valAbsX + " différence y " + valAbsY);
         if(valAbsX > valAbsY) {
@@ -82,6 +82,7 @@ public class OutilsEntites {
             else
                 return 'h';
         } else { //On se moque de quel direction
+
             int choisirEntreXetY = (int) (Math.random() * 2);
             if(choisirEntreXetY == 0) { //On se dirige horizontalement
                 if(differenceAbscisses < 0)

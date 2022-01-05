@@ -74,7 +74,16 @@ public class Menu {
             case 3:
                 break;
             case 4:
-                return;
+                switch (saisieForcee("Êtes-vous sûr(e) de vouloir quitter ? \n1. Oui\n2. Non", 1, 2)) {
+                    case 1:
+                        System.out.println("Désolé nous vous rembourserons :(");
+                        return;
+                    case 2:
+                        afficherMenuPrincipal();
+                    default:
+                        break;
+                }
+
         }
     }
 
