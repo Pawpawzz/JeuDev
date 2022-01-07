@@ -4,7 +4,8 @@ import main.outils.OutilsEntites;
 
 public class Ennemis {
 
-
+	private static int[] tabEnnemis = {10,11};
+	
     public static void effectuerTourEnnemis() {
         int[][] terrain = Terrain.recupererTerrain();
 
@@ -28,5 +29,9 @@ public class Ennemis {
                 }
             }
         }
+    }
+    
+    public static int[] recupererEnnemis() {
+    	return tabEnnemis;
     }
 }

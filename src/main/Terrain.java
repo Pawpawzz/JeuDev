@@ -46,6 +46,7 @@ public class Terrain {
 
         placerObstacles((int)(0.4*(double)longueur),(int)((double)longueur));
         placerPieges((int)(0.7*(double)longueur),(int)(1.2*(double)longueur));
+        placerEnnemis(Ennemis.recupererEnnemis());
         placerJoueur();
 
     }

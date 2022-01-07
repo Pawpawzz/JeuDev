@@ -23,7 +23,7 @@ public class Caracteres {
         Caracteres.enregistrerCaractere(10, "\uD83D\uDC2E", true);
         Caracteres.enregistrerCaractere(11, "\uD83C\uDFF9", true);
 
-
+        Caracteres.enregistrerCaractere(23, "X");
         Caracteres.enregistrerCaractere(200, "x");
         Caracteres.enregistrerCaractere(200, "m");
 

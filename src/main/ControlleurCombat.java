@@ -8,7 +8,7 @@ public class ControlleurCombat {
 
     public static void lancerCombat() {
         Terrain.genererTerrain(6);
-        int[] tabEnnemis = {10,11};
+        int[] tabEnnemis = Ennemis.recupererEnnemis();
         Terrain.placerEnnemis(tabEnnemis);
         int tour = 1;
         int delaiEvenement = 3;
@@ -36,6 +36,10 @@ public class ControlleurCombat {
         System.out.println("Tu as perdu");
 
     }
+    
+
+    
+    
 
 
 
