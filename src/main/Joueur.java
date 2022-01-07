@@ -2,8 +2,10 @@ package main;
 
 import main.outils.Convertisseur;
 
+import static main.Constantes.VALEUR_JOUEUR;
+
 public class Joueur {
-	public final static int VALEUR_JOUEUR = 5;
+
 	/**
 	 * Déplace le joueur dans une direction donnée et s'arrête s'il y a un obstacle ou si la longueur donnée est atteinte, 
 	 * le tout sur un terrain spécifié
@@ -35,7 +37,9 @@ public class Joueur {
 				if (terrain[ligne][colonne] == VALEUR_JOUEUR) {
 					position[0] = ligne;
 					position[1] = colonne;
+					return position;
 				}
+
 		System.out.println("[ERREUR] Le joueur ne se trouve pas sur le plateau");
 		return position;
 	}

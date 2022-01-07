@@ -22,13 +22,4 @@ public class Main {
 
 	}
 
-	public static void lancerJeu() {
-		//
-		Caracteres.chargerCaracteres();
-		Terrain.genererTerrain(6);
-
-
-		Menu.afficherActionsJoueur();
-	}
-
 }

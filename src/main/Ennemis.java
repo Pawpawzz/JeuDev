@@ -19,7 +19,7 @@ public class Ennemis {
                     int[] positionEnnemi = {x, y};
                     char direction = OutilsEntites.recupererDirection(positionEnnemi, positionJoueur);
 
-                    System.out.println("Position de l'ennemi [" + x + "][" + y + "]" + ", du joueur [" + positionJoueur[0] + "][" + positionJoueur[1] +"]" );
+                    //System.out.println("Position de l'ennemi [" + x + "][" + y + "]" + ", du joueur [" + positionJoueur[0] + "][" + positionJoueur[1] +"]" );
 
                     System.out.println("Nombre ennemis détectés " + nombreEnnemis + " il doit se diriger vers " + direction);
                     if(Personnages.deplacementPossible(direction, positionEnnemi)) {

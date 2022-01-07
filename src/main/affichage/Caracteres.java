@@ -1,5 +1,6 @@
 package main.affichage;
 
+import main.Constantes;
 import main.Terrain;
 
 public class Caracteres {
@@ -12,8 +13,8 @@ public class Caracteres {
         //Enregistrement des obstacles et des pieges
         Caracteres.enregistrerCaractere(0, " ");
 
-        Caracteres.enregistrerCaractere(Terrain.VALEUR_OBSTACLE, "◻️", true);
-        Caracteres.enregistrerCaractere(Terrain.VALEUR_PIEGE, "🕸️", true);
+        Caracteres.enregistrerCaractere(Constantes.VALEUR_OBSTACLE, "◻️", true);
+        Caracteres.enregistrerCaractere(Constantes.VALEUR_PIEGE, "🕸️", true);
         //Caracteres.enregistrerCaractere(2, "P");
 
         Caracteres.enregistrerCaractere(5, "P");

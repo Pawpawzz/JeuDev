@@ -1,8 +1,9 @@
 package main;
 
+import static main.Constantes.VALEUR_PIEGE;
+
 public class Terrain {
-    public final static int VALEUR_OBSTACLE = 1;
-    public final static int VALEUR_PIEGE = 2;
+
 
     private static int [][] _terrain;
 

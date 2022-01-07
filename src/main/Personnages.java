@@ -2,6 +2,9 @@ package main;
 
 import main.affichage.AffichageTerrain;
 
+import static main.Constantes.VALEUR_OBSTACLE;
+import static main.Constantes.VALEUR_PIEGE;
+
 public class Personnages {
 
 	private static int _vie = 3;
@@ -40,24 +43,24 @@ public class Personnages {
 		int posLigne = position[0];
 		int posColonne = position[1];
 
-		System.out.println("Position joueur x:" + posColonne + " y :" + posLigne);
-		System.out.println();
+		//System.out.println("Position joueur x:" + posColonne + " y :" + posLigne);
+		//System.out.println();
 		switch(direction) {
 		case 'g':
 			if (posColonne-1 >= 0)
-				return (terrain[posLigne][posColonne-1] != Terrain.VALEUR_OBSTACLE && terrain[posLigne][posColonne-1] != Terrain.VALEUR_PIEGE);
+				return (terrain[posLigne][posColonne-1] != VALEUR_OBSTACLE && terrain[posLigne][posColonne-1] != VALEUR_PIEGE);
 			break;
 		case 'd':
 			if (posColonne+1 < terrain.length)
-				return (terrain[posLigne][posColonne+1] != Terrain.VALEUR_OBSTACLE && terrain[posLigne][posColonne+1] != Terrain.VALEUR_PIEGE);
+				return (terrain[posLigne][posColonne+1] != VALEUR_OBSTACLE && terrain[posLigne][posColonne+1] != VALEUR_PIEGE);
 			break;
 		case 'b':
 			if (posLigne+1 < terrain.length)
-				return (terrain[posLigne+1][posColonne] != Terrain.VALEUR_OBSTACLE && terrain[posLigne+1][posColonne] != Terrain.VALEUR_PIEGE);
+				return (terrain[posLigne+1][posColonne] != VALEUR_OBSTACLE && terrain[posLigne+1][posColonne] != VALEUR_PIEGE);
 			break;
 		case 'h':
 			if (posLigne-1 >= 0)
-				return (terrain[posLigne-1][posColonne] != Terrain.VALEUR_OBSTACLE && terrain[posLigne-1][posColonne] != Terrain.VALEUR_PIEGE);
+				return (terrain[posLigne-1][posColonne] != VALEUR_OBSTACLE && terrain[posLigne-1][posColonne] != VALEUR_PIEGE);
 			break;
 		}
 		return false;

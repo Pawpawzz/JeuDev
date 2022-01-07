@@ -4,7 +4,7 @@ import main.Terrain;
 import main.outils.OutilsEntites;
 import org.junit.Test;
 
-import static main.Joueur.VALEUR_JOUEUR;
+import static main.Constantes.VALEUR_JOUEUR;
 import static org.junit.Assert.assertEquals;
 
 public class TestOutilsEntites {
