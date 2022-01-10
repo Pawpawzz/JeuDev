@@ -10,7 +10,8 @@ import static main.Constantes.VALEUR_JOUEUR;
 
 public class Ennemis {
 
-
+	private static int[] tabEnnemis = {10,11};
+	
     public static void effectuerTourEnnemis() {
         int[][] terrain = Terrain.recupererTerrain();
 
@@ -78,5 +79,9 @@ public class Ennemis {
         }
 
         return positionEnnemis;
+    }
+    
+    public static int[] recupererEnnemis() {
+    	return tabEnnemis;
     }
 }
