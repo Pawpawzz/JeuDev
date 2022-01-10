@@ -2,6 +2,7 @@ package main;
 
 public class Competences {
     public static void charge(char direction, int[] position) {
+<<<<<<< Updated upstream
         int[][] terrain = Terrain.recupererTerrain();
 
         int joueurCoordY = position[0];
@@ -113,6 +114,44 @@ public class Competences {
 
         int valeurCase = terrain[nbCaseY][nbCaseX];
         //} while(nbCaseY > 0 && nbCaseY <= terrain.length && nbCaseX> 0 && nbCaseX <= terrain.length && aToucher);
+=======
+    	
+    }
+    
+    
+    /**
+	 * Vérifie si les cases séparant 2 cases données sont vides.
+	 * 
+	 * @param posDépart	position de la case 1, tableau de longueur 2 de type [ligne, colonne]
+	 * @param posArrivé	position de la case 2, tableau de longueur 2 de type [ligne, colonne]
+	 * @return booleen	true si les cases sont vides ou inexistantes, false sinon
+	 */
+    public static boolean estVide(int[] posDépart, int[] posArrivé) {
+    	if (posDépart[0] == posArrivé[0]) {
+    		if (posDépart[1] < posArrivé[1])
+    			for (int colonne = posDépart[1]+1; colonne < posArrivé[1]-1; colonne++)
+    				if (Terrain.recupererTerrain()[posDépart[0]][colonne] != 0)
+    					return false;
+    		else
+    			for (int colonne1 = posDépart[1]-1; colonne1 > posArrivé[1]+1; colonne1--)
+    				if (Terrain.recupererTerrain()[posDépart[0]][colonne1] != 0)
+    					return false;
+    		return true;
+    	}
+    	else if (posDépart[1] == posArrivé[1]) {
+    		if (posDépart[0] < posArrivé[0])
+    			for (int ligne = posDépart[0]+1; ligne < posArrivé[0]-1; ligne++)
+    				if (Terrain.recupererTerrain()[ligne][posDépart[1]] != 0)
+    					return false;
+    		else
+    			for (int ligne1 = posDépart[1]-1; ligne1 > posArrivé[1]+1; ligne1--)
+    				if (Terrain.recupererTerrain()[ligne1][posDépart[1]] != 0)
+    					return false;
+    		return true;
+    	}
+    	else
+    		return false;
+>>>>>>> Stashed changes
     }
 
     public static void grappin(char direction, int[] position) {

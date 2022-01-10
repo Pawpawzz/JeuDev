@@ -31,7 +31,7 @@ public class Personnages {
 
 
 	/**
-	 * Renvoie un booléen qui valide ou non le déplacement dans la direction donn�e.
+	 * Renvoie un booléen qui valide ou non le déplacement dans la direction donnée.
 	 * 
 	 * @param direction	direction du déplacement du personnage, caractère 'g', 'd', 'b' ou 'h'
 	 * @param position	position actuelle du personnage, tableau de longueur 2 de type [ligne, colonne]
@@ -67,7 +67,7 @@ public class Personnages {
 	}
 	
 	/**
-	 * Déplace le personnage de une case par rapport à sa position et à la direction donnée, le tout sur un terrain spécifié
+	 * Déplace le personnage de une case par rapport à sa position et à la direction donnée.
 	 * Attention: Ne vérifie pas la validité du déplacement avant de déplacer le personnage
 	 * 
 	 * @param direction	direction du déplacement du personnage, caractère 'g', 'd', 'b' ou 'h'

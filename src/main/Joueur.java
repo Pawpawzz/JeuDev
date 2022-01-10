@@ -7,8 +7,7 @@ import static main.Constantes.VALEUR_JOUEUR;
 public class Joueur {
 
 	/**
-	 * Déplace le joueur dans une direction donnée et s'arrête s'il y a un obstacle ou si la longueur donnée est atteinte, 
-	 * le tout sur un terrain spécifié
+	 * Déplace le joueur dans une direction donnée et s'arrête s'il y a un obstacle ou si la longueur donnée est atteinte
 	 */
 	public static void deplacement (String directionLongueur) {
 		int [][] terrain = Terrain.recupererTerrain();
