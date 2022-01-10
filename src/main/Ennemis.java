@@ -29,17 +29,18 @@ public class Ennemis {
             System.out.println(terrain[toutLesEnnemis.get(indexEnnemi)[0]][toutLesEnnemis.get(indexEnnemi)[1]]);
             System.out.println(String.format("Ennemi n°%o/%o", (indexEnnemi+1), toutLesEnnemis.size()));
             int[] ennemi = toutLesEnnemis.get(indexEnnemi);
-            int positionX = ennemi[0];
-            int positionY = ennemi[1];
+
+            int positionY = ennemi[0];
+            int positionX = ennemi[1];
 
             boolean aEteDeplacer = false;
 
-            int caseX = 0;
+            int caseY = 0;
 
-            while(caseX < cheminAParcourir.length && !aEteDeplacer) {
-                int caseY = 0;
+            while(caseY < cheminAParcourir.length && !aEteDeplacer) {
+                int caseX = 0;
                 while(caseY < cheminAParcourir.length && !aEteDeplacer) {
-                    int[] positionCheminActuelle = {caseX, caseY};
+                    int[] positionCheminActuelle = {caseY, caseX};
                     if(OutilsEntites.distanceEntreDeux(ennemi, positionCheminActuelle) == 1) {
                         System.out.println("Je peux me déplacer vers " + OutilsEntites.recupererOrientation(ennemi, positionCheminActuelle));
                         char direction = OutilsEntites.recupererOrientation(ennemi, positionCheminActuelle);
@@ -50,9 +51,9 @@ public class Ennemis {
                     }
 
 
-                    caseY++;
+                    caseX++;
                 }
-                caseX++;
+                caseY++;
             }
             System.out.println("Je vérifie si je peux attaquer");
         }
@@ -65,14 +66,14 @@ public class Ennemis {
         int[][] terrain = Terrain.recupererTerrain();
         ArrayList<int[]> positionEnnemis = new ArrayList<int[]>();
 
-        for(int caseX = 0; caseX < terrain.length; caseX++) {
-            for(int caseY = 0; caseY < terrain.length; caseY++) {
-                int valeurCase = terrain[caseX][caseY];
-                if(valeurCase >= 10 && valeurCase <= 20) {
+        for(int caseY = 0; caseY < terrain.length; caseY++) {
+            for(int caseX = 0; caseX < terrain.length; caseX++) {
+                int valeurCase = terrain[caseY][caseX];
+                if(valeurCase >= Constantes.VALEUR_MIN_ENNEMI && valeurCase <= Constantes.VALEUR_MAX_ENNEMI) {
                     int[] positionEnnemi = new int[2];
-                    System.out.println(String.format("J'ai trouvé un ennemi à [%o][%o]", caseX, caseY));
-                    positionEnnemi[0] = caseX;
-                    positionEnnemi[1] = caseY;
+                    System.out.println(String.format("J'ai trouvé un ennemi à [%o][%o]", caseY, caseX));
+                    positionEnnemi[1] = caseX;
+                    positionEnnemi[0] = caseY;
                     positionEnnemis.add(positionEnnemi);
                 }
             }

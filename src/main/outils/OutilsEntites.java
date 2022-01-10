@@ -40,19 +40,19 @@ public class OutilsEntites {
         //n pour null
         if(ciblePosition[0] > sourcePosition[0]) {
             if (ciblePosition[1] == sourcePosition[1])
-                return 'd';
+                return 'b';
         }
         if(ciblePosition[0] < sourcePosition[0])
             if(ciblePosition[1] == sourcePosition[1])
-                return 'g';
+                return 'h';
 
         if(ciblePosition[1] > sourcePosition[1])
             if(ciblePosition[0] == sourcePosition[0])
-                return 'b';
+                return 'd';
 
         if(ciblePosition[1] < sourcePosition[1])
             if(ciblePosition[0] == sourcePosition[0])
-                return 'h';
+                return 'g';
         return 'n';
     }
 

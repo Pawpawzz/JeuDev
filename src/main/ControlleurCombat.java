@@ -27,10 +27,10 @@ public class ControlleurCombat {
             }
             System.out.println("Tour n°" + tour);
             Menu.afficherActionsJoueur();
-            System.out.println(">Mouvement ennemis<");
-
+            /*System.out.println(">Mouvement ennemis<");
+             */
             Ennemis.effectuerTourEnnemis();
-            //System.out.println("[TEST] Tu perds une vie ");
+            //System.out.println("[TEST] Tu perds une vie ");*/
 
             if(tour % delaiEvenement == 0) {
                 System.out.println("Attention un vent violent frappe du côté est");

@@ -1,9 +1,6 @@
 package main.affichage;
 
-import main.ControlleurCombat;
-import main.Joueur;
-import main.Main;
-import main.Terrain;
+import main.*;
 import main.outils.Chemin;
 
 import java.util.Scanner;
@@ -92,7 +89,10 @@ public class Menu {
         AffichagePersonnage.afficherNombreVie();
         AffichageTerrain.afficher();
         //Chemin.afficherTableau(Terrain.recupererTerrain());
-        switch (saisieForcee("1. Se déplacer", 1, 3)) {
+        int[] positionJoueur = Joueur.positionJoueur();
+        char direction;
+
+        switch (saisieForcee("1. Se déplacer\n2. Grappin\n3. Charge", 1, 3)) {
             case 1:
 
                 String deplacement;
@@ -103,6 +103,20 @@ public class Menu {
                 while(!deplacementSyntaxeValide(deplacement));
                 Joueur.deplacement(deplacement);
 
+                break;
+
+            case 2:
+
+                System.out.print("Quel direction ? : ");
+                direction = scanner.nextLine().charAt(0);
+                Competences.grappin(direction, positionJoueur);
+                //Competences.grappin();
+                break;
+            case 3:
+                System.out.print("Quel direction ? : ");
+                direction = scanner.nextLine().charAt(0);
+                Competences.charge(direction, positionJoueur);
+                break;
 
 
         }

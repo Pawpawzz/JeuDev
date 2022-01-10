@@ -33,7 +33,7 @@ public class Joueur {
 		int[] position = {0, 0};
 		
 		for (int ligne = 0; ligne < terrain.length; ligne ++)
-			for (int colonne = 0; colonne < terrain.length; colonne++)
+			for (int colonne = 0; colonne < terrain[ligne].length; colonne++)
 				if (terrain[ligne][colonne] == VALEUR_JOUEUR) {
 					position[0] = ligne;
 					position[1] = colonne;

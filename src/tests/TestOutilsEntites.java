@@ -1,4 +1,4 @@
-package tests;
+/*package tests;
 
 import main.Terrain;
 import main.outils.OutilsEntites;
@@ -27,3 +27,4 @@ public class TestOutilsEntites {
 
     }
 }
+*/
