@@ -26,8 +26,8 @@ public class Ennemis {
 
 
         for(int indexEnnemi = 0; indexEnnemi < toutLesEnnemis.size(); indexEnnemi++) {
-            System.out.println(terrain[toutLesEnnemis.get(indexEnnemi)[0]][toutLesEnnemis.get(indexEnnemi)[1]]);
-            System.out.println(String.format("Ennemi n°%o/%o", (indexEnnemi+1), toutLesEnnemis.size()));
+            //System.out.println(terrain[toutLesEnnemis.get(indexEnnemi)[0]][toutLesEnnemis.get(indexEnnemi)[1]]);
+            System.out.println(String.format("Ennemi n°%s/%s", (indexEnnemi+1), toutLesEnnemis.size()));
             int[] ennemi = toutLesEnnemis.get(indexEnnemi);
 
             int positionY = ennemi[0];
@@ -39,15 +39,16 @@ public class Ennemis {
 
             while(caseY < cheminAParcourir.length && !aEteDeplacer) {
                 int caseX = 0;
-                while(caseY < cheminAParcourir.length && !aEteDeplacer) {
+                while(caseX < cheminAParcourir.length && !aEteDeplacer) {
                     int[] positionCheminActuelle = {caseY, caseX};
-                    if(OutilsEntites.distanceEntreDeux(ennemi, positionCheminActuelle) == 1) {
-                        System.out.println("Je peux me déplacer vers " + OutilsEntites.recupererOrientation(ennemi, positionCheminActuelle));
-                        char direction = OutilsEntites.recupererOrientation(ennemi, positionCheminActuelle);
-                        if(Personnages.deplacementPossible(direction, ennemi)) {
+                    if(OutilsEntites.distanceEntreDeux(ennemi, positionCheminActuelle) == 1 && terrain[caseY][caseX] == 0) {
+
+                        if(cheminAParcourir[caseY][caseX] == cheminAParcourir[ennemi[0]][ennemi[1]] - 1) {
+                            char direction = OutilsEntites.recupererOrientation(ennemi, positionCheminActuelle);
+                            System.out.println("Je peux me déplacer vers " + direction);
                             Personnages.deplacementUneCase(direction, ennemi);
+                            aEteDeplacer = true;
                         }
-                        aEteDeplacer = true;
                     }
 
 

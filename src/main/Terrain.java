@@ -51,10 +51,14 @@ public class Terrain {
 
     }
 
+    /**
+     * Retourne la valeur d'une case se situant à côté d'une autre, il est nécessaire de préciser une direction (d,g,h,b)
+     * @param direction
+     * @param position
+     * @return -1 si la valeur est en dehors des limites du tableau
+     */
     public static int valeurCaseACote(char direction, int[] position) {
-
         int valeur = -1;
-
         switch(direction) {
             case 'g':
                 if(position[1] - 1 >= 0)
@@ -75,6 +79,47 @@ public class Terrain {
         }
 
         return valeur;
+    }
+
+
+    /**
+     * Retourne la position d'une case à côté d'une autre, il est nécessaire de préciser une direction (d,g,h,b)
+     * @param direction
+     * @param position
+     * @return int[-1,-1] si la case est en dehors de la limite
+     */
+    public static int[] positionCaseACote(char direction, int[] position) {
+        int[][] terrain = Terrain.recupererTerrain();
+
+        int[] positionACote = {-1, -1};
+        switch(direction) {
+            case 'g':
+                if(position[1] - 1 >= 0) {
+                    positionACote[0] = position[0];
+                    positionACote[1] = position[1] - 1;
+                }
+                break;
+            case 'd':
+                if(position[1] + 1 < terrain[position[0]].length) {
+                    positionACote[0] = position[0];
+                    positionACote[1] = position[1] + 1;
+                }
+                break;
+            case 'h':
+                if(position[0] - 1 >= 0) {
+                    positionACote[0] = position[0] - 1;
+                    positionACote[1] = position[1];
+                }
+                break;
+            case 'b':
+                if(position[0] + 1 < terrain.length) {
+                    positionACote[0] = position[0] + 1;
+                    positionACote[1] = position[1];
+                }
+                break;
+        }
+
+        return positionACote;
     }
 
     public static int[][] recupererTerrain() {
