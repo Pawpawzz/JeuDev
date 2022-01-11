@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestTerrain {
     @Test
     public void TestValeurCaseACote() {
-        Terrain.genererTerrain(5);
+        Terrain.genererTerrain(5, false);
         int[][] terrain = Terrain.recupererTerrain();
 
         terrain[0][1] =  3;
@@ -32,7 +32,7 @@ public class TestTerrain {
 
     @Test
     public void TestPositionCaseACote() {
-        Terrain.genererTerrain(5);
+        Terrain.genererTerrain(5, false);
         //int[][] terrain = Terrain.recupererTerrain();
 
         assertArrayEquals(new int[]{0,1}, Terrain.positionCaseACote('d', new int[]{0,0}));

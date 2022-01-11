@@ -3,7 +3,7 @@ package main;
 public class Competences {
 
     public static void charge(char direction, int[] position) {
-        int [][] terrain = Terrain.recupererTerrain();/
+        int [][] terrain = Terrain.recupererTerrain();
 
         //On vérifie si la prochaine case est un ennemi
         int prochainCase = Terrain.valeurCaseACote(direction, position);
