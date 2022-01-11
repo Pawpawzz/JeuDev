@@ -117,16 +117,6 @@ public class AffichageTerrain  {
         for(int ligne = 0; ligne < terrain.length; ligne++) {
             afficherCasesEnLigne(terrain[ligne].length, terrain.length, ligne, terrain);
         }
-        /*for (int ligne = 0; ligne < terrain.length; ligne++) {
-            for (int colonne = 0; colonne < terrain.length; colonne++) {
-                if (terrain[ligne][colonne] != 0)
-                    System.out.print(terrain[ligne][colonne]);
-                else
-                    System.out.print(" ");
-                System.out.print("|");
-            }
-            System.out.println();
-        }*/
     }
 }
 

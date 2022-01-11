@@ -34,21 +34,23 @@ public class Terrain {
     public static void placerJoueur () {
 
     	int[] position = {(int) (Math.random()*_terrain.length),(int) (Math.random()*_terrain.length)};
-    	while (_terrain[position[0]][position[1]] != 0)
+    	while (_terrain[position[0]][position[1]] != 0) {
 			position[0] = (int) (Math.random()*_terrain.length);
 			position[1] = (int) (Math.random()*_terrain.length);
+    	}
 		_terrain[position[0]][position[1]] = 5;
     }
 
-    public static void genererTerrain(int longueur) {
+    public static void genererTerrain(int longueur, boolean vide) {
         _terrain = new int[longueur][longueur];
 
 
-        placerObstacles((int)(0.4*(double)longueur),(int)((double)longueur));
-        placerPieges((int)(0.7*(double)longueur),(int)(1.2*(double)longueur));
-        placerEnnemis(Ennemis.recupererEnnemis());
-        placerJoueur();
-
+        if(!vide) {
+            placerObstacles((int) (0.4 * (double) longueur), (int) ((double) longueur));
+            placerPieges((int) (0.7 * (double) longueur), (int) (1.2 * (double) longueur));
+            placerEnnemis(Ennemis.recupererEnnemis());
+            placerJoueur();
+        }
     }
 
     /**

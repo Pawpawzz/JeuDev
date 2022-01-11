@@ -42,6 +42,7 @@ public class Competences {
 
         System.out.println(String.format("Position joueur %s %s", joueurCoordY, joueurCoordX ));
         boolean aToucher = false;
+        boolean piege = false;
 
         do {
             switch (direction) {
@@ -65,25 +66,31 @@ public class Competences {
             int valeurCase = terrain[nbCaseY][nbCaseX];
 
             System.out.println("Valeur case " + valeurCase);
-            if(valeurCase == Constantes.VALEUR_PIEGE || valeurCase == Constantes.VALEUR_OBSTACLE) {
+            if(valeurCase == Constantes.VALEUR_OBSTACLE) {
                 aToucher = true;
             }
+            
+            if (valeurCase == Constantes.VALEUR_PIEGE) {
+            	piege = true;
+            }
+            
             else if(valeurCase >= Constantes.VALEUR_MIN_ENNEMI && valeurCase <= Constantes.VALEUR_MAX_ENNEMI) {
                 //Pour savoir ou on doit placer l'ennemi en fonction de la direction
-                switch(direction) {
-                    case 'd':
-                        terrain[joueurCoordY][joueurCoordX + 1] = valeurCase;
-                        break;
-                    case 'g':
-                        terrain[joueurCoordY][joueurCoordX - 1] = valeurCase;
-                        break;
-                    case 'h':
-                        terrain[joueurCoordY - 1][joueurCoordX] = valeurCase;
-                        break;
-                    case 'b':
-                        terrain[joueurCoordY + 1][joueurCoordX] = valeurCase;
-                        break;
-                }
+            	if (!piege)
+	                switch(direction) {
+	                    case 'd':
+	                        terrain[joueurCoordY][joueurCoordX + 1] = valeurCase;
+	                        break;
+	                    case 'g':
+	                        terrain[joueurCoordY][joueurCoordX -1] = valeurCase;
+	                        break;
+	                    case 'h':
+	                        terrain[joueurCoordY - 1][joueurCoordX] = valeurCase;
+	                        break;
+	                    case 'b':
+	                        terrain[joueurCoordY + 1][joueurCoordX] = valeurCase;
+	                        break;
+	                }
 
                 terrain[nbCaseY][nbCaseX] = 0;
                 aToucher = true;

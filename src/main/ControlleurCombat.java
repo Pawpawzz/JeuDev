@@ -9,7 +9,7 @@ import static main.Constantes.VALEUR_MIN_ENNEMI;
 public class ControlleurCombat {
 
     public static void lancerCombat() {
-        Terrain.genererTerrain(6);
+        Terrain.genererTerrain(6, false);
 
         int archer = VALEUR_MIN_ENNEMI;
         int taureau = VALEUR_MIN_ENNEMI + 1;
@@ -18,24 +18,22 @@ public class ControlleurCombat {
         Terrain.placerEnnemis(tabEnnemis);
 
         int tour = 1;
-        int delaiEvenement = 3;
+        boolean evenementFrappe = false;
 
         while(Personnages.recupererVie() > 0) {
-            if((tour +1) % delaiEvenement == 0) {
-                System.out.println("Il y aura un évenement de type [type] au prochain tour");
-                Evenement.genererUnEvenement();
-            }
             System.out.println("Tour n°" + tour);
+            if (evenementFrappe)
+            	Evenement.finEvent();
+            if (tour%5 == 0) {
+            	Evenement.debutEvent();
+            	evenementFrappe = true;
+            }
             Menu.afficherActionsJoueur();
             /*System.out.println(">Mouvement ennemis<");
              */
             Ennemis.effectuerTourEnnemis();
             //System.out.println("[TEST] Tu perds une vie ");*/
 
-            if(tour % delaiEvenement == 0) {
-                System.out.println("Attention un vent violent frappe du côté est");
-
-            }
 
             tour+=1;
         }
