@@ -2,7 +2,6 @@ package main;
 
 public class Competences {
     public static void charge(char direction, int[] position) {
-<<<<<<< Updated upstream
         int[][] terrain = Terrain.recupererTerrain();
 
         int joueurCoordY = position[0];
@@ -114,7 +113,6 @@ public class Competences {
 
         int valeurCase = terrain[nbCaseY][nbCaseX];
         //} while(nbCaseY > 0 && nbCaseY <= terrain.length && nbCaseX> 0 && nbCaseX <= terrain.length && aToucher);
-=======
     	
     }
     
@@ -151,7 +149,6 @@ public class Competences {
     	}
     	else
     		return false;
->>>>>>> Stashed changes
     }
 
     public static void grappin(char direction, int[] position) {
