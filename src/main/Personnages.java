@@ -38,32 +38,7 @@ public class Personnages {
 	 * @return			Booléen, true si le déplacement est valide, false sinon
 	 */
 	public static boolean deplacementPossible(char direction, int[] position) {
-		int[][] terrain = Terrain.recupererTerrain();
-
-		int posLigne = position[0];
-		int posColonne = position[1];
-
-		//System.out.println("Position joueur x:" + posColonne + " y :" + posLigne);
-		//System.out.println();
-		switch(direction) {
-		case 'g':
-			if (posColonne-1 >= 0)
-				return (terrain[posLigne][posColonne-1] != VALEUR_OBSTACLE && terrain[posLigne][posColonne-1] != VALEUR_PIEGE);
-			break;
-		case 'd':
-			if (posColonne+1 < terrain.length)
-				return (terrain[posLigne][posColonne+1] != VALEUR_OBSTACLE && terrain[posLigne][posColonne+1] != VALEUR_PIEGE);
-			break;
-		case 'b':
-			if (posLigne+1 < terrain.length)
-				return (terrain[posLigne+1][posColonne] != VALEUR_OBSTACLE && terrain[posLigne+1][posColonne] != VALEUR_PIEGE);
-			break;
-		case 'h':
-			if (posLigne-1 >= 0)
-				return (terrain[posLigne-1][posColonne] != VALEUR_OBSTACLE && terrain[posLigne-1][posColonne] != VALEUR_PIEGE);
-			break;
-		}
-		return false;
+		return (Terrain.valeurCaseACote(direction, position) == 0);
 	}
 	
 	/**
