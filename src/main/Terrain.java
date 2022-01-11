@@ -51,6 +51,32 @@ public class Terrain {
 
     }
 
+    public static int valeurCaseACote(char direction, int[] position) {
+
+        int valeur = -1;
+
+        switch(direction) {
+            case 'g':
+                if(position[1] - 1 >= 0)
+                    valeur = _terrain[position[0]][position[1] - 1];
+                break;
+            case 'd':
+                if(position[1] + 1 < _terrain[position[0]].length)
+                    valeur = _terrain[position[0]][position[1] + 1];
+                break;
+            case 'h':
+                if(position[0] - 1 >= 0)
+                    valeur = _terrain[position[0] - 1][position[1]];
+                break;
+            case 'b':
+                if(position[0] + 1 < _terrain.length)
+                    valeur = _terrain[position[0] + 1][position[1]];
+                break;
+        }
+
+        return valeur;
+    }
+
     public static int[][] recupererTerrain() {
         return _terrain;
     }
