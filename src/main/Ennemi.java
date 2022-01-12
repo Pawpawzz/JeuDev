@@ -39,10 +39,29 @@ public class Ennemi {
             char[] directionValide = {'d', 'g', 'h', 'b'};
             short indiceDirection = 0;
             boolean estDeplace = false;
-
+            boolean aAttaque = false;
+            int valeurEnnemi = terrain[ennemi[0]][ennemi[1]];
+            
+            switch (valeurEnnemi) {
+	            case Constantes.VALEUR_TAUREAU:
+	                System.out.println("Distance " + OutilsEntites.distanceEntreDeux(positionJoueur, ennemi));
+	                if (OutilsEntites.distanceEntreDeux(positionJoueur, ennemi) == 1) {
+	                    char directionJoueur = OutilsEntites.recupererOrientation(ennemi, positionJoueur);
+	                    Competences.charge(directionJoueur, ennemi);
+	                    System.out.println("Le joueur se situe à " + directionJoueur);
+	                    aAttaque = true;
+	                }
+	                break;
+	            case Constantes.VALEUR_ARCHER:
+	            	if (Competences.tirArc(ennemi))
+	            		aAttaque = true;
+	                break;
+	            default:
+	                break;
+            }
             //Le joueur est à la position 1, donc si c'est égale à deux, cela signifie qu'il à côté
             //C'est légèrement plus rapide que de faire appel à Outils.distanceEntreDeux
-            if(cheminAParcourir[ennemi[0]][ennemi[1]] != 2) {
+            if(cheminAParcourir[ennemi[0]][ennemi[1]] != 2 && !aAttaque) {
                 //System.out.println("Je me situe à " + casesRestantes +  " je vais donc me déplacer");
                 while (indiceDirection < directionValide.length && !estDeplace) {
                     char directionActuelle = directionValide[indiceDirection];
@@ -60,34 +79,7 @@ public class Ennemi {
                     indiceDirection++;
                 }
             }
-
-            int valeurEnnemi = terrain[ennemi[0]][ennemi[1]];
-
-            if(!estDeplace) {
-
-                switch (valeurEnnemi) {
-                    case Constantes.VALEUR_TAUREAU:
-                        System.out.println("Distance " + OutilsEntites.distanceEntreDeux(positionJoueur, ennemi));
-                        if (OutilsEntites.distanceEntreDeux(positionJoueur, ennemi) == 1) {
-                            char directionJoueur = OutilsEntites.recupererOrientation(ennemi, positionJoueur);
-                            System.out.println("Le joueur se situe à " + directionJoueur);
-                        }
-                        break;
-                    case Constantes.VALEUR_ARCHER:
-
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-
-
-
-
-
         }
-
 
 
     }

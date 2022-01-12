@@ -92,7 +92,7 @@ public class Menu {
         int[] positionJoueur = Joueur.positionJoueur();
         char direction;
 
-        switch (saisieForcee("1. Se déplacer\n2. Grappin\n3. Charge", 1, 3)) {
+        switch (saisieForcee("1. Se déplacer\n2. Grappin\n3. Charge\n4. Saut", 1, 4)) {
             case 1:
 
                 String deplacement;
@@ -117,8 +117,11 @@ public class Menu {
                 direction = scanner.nextLine().charAt(0);
                 Competences.charge(direction, positionJoueur);
                 break;
-
-
+            case 4:
+            	System.out.print("Quel direction ? : ");
+                direction = scanner.nextLine().charAt(0);
+                Competences.saut(direction, positionJoueur);
+                break;
         }
 
     }

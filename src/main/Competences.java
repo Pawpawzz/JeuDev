@@ -10,7 +10,7 @@ public class Competences {
         //On vérifie si la prochaine case est un ennemi
         int prochainCase = OutilsTableaux.valeurCaseACote(terrain, direction, position);
 
-        if(prochainCase >= Constantes.VALEUR_MIN_ENNEMI && prochainCase <= Constantes.VALEUR_MAX_ENNEMI) {
+        if((prochainCase >= Constantes.VALEUR_MIN_ENNEMI && prochainCase <= Constantes.VALEUR_MAX_ENNEMI) || prochainCase == Constantes.VALEUR_JOUEUR) {
             int[] posEnnemi = OutilsTableaux.positionCaseACote(terrain, direction, position);
             int[] prochainePosition = OutilsTableaux.positionCaseACote(terrain, direction, posEnnemi);
 
@@ -100,6 +100,119 @@ public class Competences {
 
         } while(nbCaseX > 0 && nbCaseX < terrain.length && nbCaseY > 0 && nbCaseY < terrain.length && !aToucher);
     }
-
-
+    
+    public static void saut(char direction, int[] position) {
+    	int[][] terrain = Terrain.recupererTerrain();
+    	switch(direction) {
+        case 'd':
+            if (position[1]+2 < terrain.length && terrain[position[0]][position[1]+2] == 0) {
+            	terrain[position[0]][position[1]+2] = Constantes.VALEUR_JOUEUR;
+            	terrain[position[0]][position[1]] = 0;
+            }
+            break;
+        case 'g':
+        	 if (position[0]-2 >= 0 && terrain[position[0]-2][position[1]] == 0) {
+             	terrain[position[0]][position[1]+2] = Constantes.VALEUR_JOUEUR;
+             	terrain[position[0]][position[1]] = 0;
+        	}
+            break;
+        case 'h':
+        	if (position[0]+2 < terrain.length && terrain[position[0]+2][position[1]] == 0) {
+            	terrain[position[0]+2][position[1]] = Constantes.VALEUR_JOUEUR;
+            	terrain[position[0]][position[1]] = 0;
+        	}
+            break;
+        case 'b':
+        	if (position[0]-2 >= 0 && terrain[position[0]-2][position[1]] == 0) {
+            	terrain[position[0]-2][position[1]] = Constantes.VALEUR_JOUEUR;
+            	terrain[position[0]][position[1]] = 0;
+        	}
+            break;
+    	}
+    }
+    
+    /**
+	 * Renvoie un booléen, true si l'archer attaque, false sinon.
+	 * Attention: les méthodes qui suivent servent et fonctionnent uniquement pour l'archer
+	 * 
+	 * @param posTireur	position actuelle de l'archer, tableau de longueur 2 de type [ligne, colonne]
+	 * @return			booléen
+	 */
+    public static boolean tirArc (int[] posTireur) {
+    	int[] posJoueur = Joueur.positionJoueur();
+    	char direction;
+    	
+    	if (posTireur[0] == posJoueur[0])
+    		direction = tirDirection(posTireur, posJoueur, 'x');
+    	else if (posTireur[1] == posJoueur[1])
+    		direction = tirDirection(posTireur, posJoueur, 'y');
+    	else
+    		return false;
+		if (peutTirer(posTireur, posJoueur, direction)) {
+			System.out.println("L'archer tire, vous perdez une vie");
+			Personnages.modifierVie(-1);
+			return true;
+		}
+    	return false;
+    }
+    
+    /**
+	 * Renvoie un booléen, true si il n'y a pas d'obstacles entre l'archer et le joueur, false sinon.
+	 * 
+	 * @param posTireur	position actuelle de l'archer, tableau de longueur 2 de type [ligne, colonne]
+	 * @param posJoueur	position actuelle du joueur, tableau de longueur 2 de type [ligne, colonne]
+	 * @param direction	charactère qui définit dans quelle direction l'archer doit attaquer, 'h', 'b', 'd' ou 'g'
+	 * @return			booléen
+	 */
+    public static boolean peutTirer (int[] posTireur, int[] posJoueur, char direction) {
+    	int [][] terrain = Terrain.recupererTerrain();
+    	switch(direction) {
+    		case 'g':
+    			for (int x = posTireur[1]-1; x > posJoueur[1]; x--)
+    				if (terrain[posTireur[0]][x] != 0 || terrain[posTireur[0]][x] != Constantes.VALEUR_PIEGE)
+    					return false;
+    			return true;
+    		case 'd':
+    			for (int x = posTireur[1]+1; x < posJoueur[1]; x++)
+    				if (terrain[posTireur[0]][x] != 0 || terrain[posTireur[0]][x] != Constantes.VALEUR_PIEGE)
+    					return false;
+    			return true;
+    		case 'h':
+    			for (int y = posTireur[0]+1; y < posJoueur[0]; y++)
+    				if (terrain[y][posTireur[1]] != 0 || terrain[y][posTireur[1]] != Constantes.VALEUR_PIEGE)
+    					return false;
+    			return true;
+    		case 'b':
+    			for (int y = posTireur[0]-1; y > posJoueur[0]; y--)
+    				if (terrain[y][posTireur[1]] != 0 || terrain[y][posTireur[1]] != Constantes.VALEUR_PIEGE)
+    					return false;
+    			return true;
+    	}
+    	return false;
+    	
+    }
+    /**
+	 * Renvoie un charactère qui définit la direction dans laquelle l'archer doit tirer, par rapport au joueur.
+	 * 
+	 * @param posTireur	position actuelle de l'archer, tableau de longueur 2 de type [ligne, colonne]
+	 * @param posJoueur	position actuelle du joueur, tableau de longueur 2 de type [ligne, colonne]
+	 * @param axe		charactère qui définit sur quel axe sont alignés le joueur et l'archer, 'x' ou 'y'
+	 * @return			charactère, 'h', 'b', 'd' ou 'g'
+	 */
+    public static char tirDirection (int[] posTireur, int[] posJoueur, char axe) {
+    	if (axe == 'y') {
+    		if (posTireur[0] < posJoueur[0])
+    			return 'h';
+    		else
+    			return 'b';
+    	}
+    	else {
+    		if (posTireur[1] < posJoueur[1])
+    			return 'd';
+    		else
+    			return 'g';
+    	}
+    }
+    
+    
 }
