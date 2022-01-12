@@ -2,19 +2,16 @@ package main;
 
 import main.affichage.Menu;
 
-import java.util.function.Function;
-
-import static main.Constantes.VALEUR_MIN_ENNEMI;
+import static main.Constantes.*;
 
 public class ControlleurCombat {
 
     public static void lancerCombat() {
         Terrain.genererTerrain(6, false);
 
-        int archer = VALEUR_MIN_ENNEMI;
-        int taureau = VALEUR_MIN_ENNEMI + 1;
 
-        int[] tabEnnemis = {archer,taureau};
+
+        int[] tabEnnemis = {VALEUR_TAUREAU,VALEUR_ARCHER};
         Terrain.placerEnnemis(tabEnnemis);
 
         int tour = 1;
@@ -31,7 +28,7 @@ public class ControlleurCombat {
             Menu.afficherActionsJoueur();
             /*System.out.println(">Mouvement ennemis<");
              */
-            Ennemis.effectuerTourEnnemis();
+            Ennemi.effectuerTourEnnemis();
             //System.out.println("[TEST] Tu perds une vie ");*/
 
 
@@ -41,12 +38,4 @@ public class ControlleurCombat {
         System.out.println("Tu as perdu");
 
     }
-    
-
-    
-    
-
-
-
-
 }

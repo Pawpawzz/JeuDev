@@ -7,7 +7,7 @@ public class Convertisseur {
 
         for(int car = 0; car < intString.length(); car++) {
             resultat *= 10;
-            resultat += intString.charAt(car) - 48;
+            resultat += intString.charAt(car) - MIN_VALUE;
 
         }
 

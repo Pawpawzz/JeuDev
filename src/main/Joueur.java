@@ -26,10 +26,14 @@ public class Joueur {
 			i += 1;
 		}
 	}
-	
+
+	/**
+	 * Permet de récupérer la position du joueur sur le plateau
+	 * @return int[-1, -1] si le joueur ne se trouve pas sur le plateau (est mort)
+	 */
 	public static int[] positionJoueur () {
 		int [][] terrain = Terrain.recupererTerrain();
-		int[] position = {0, 0};
+		int[] position = {-1, -1};
 		
 		for (int ligne = 0; ligne < terrain.length; ligne ++)
 			for (int colonne = 0; colonne < terrain[ligne].length; colonne++)
@@ -38,8 +42,6 @@ public class Joueur {
 					position[1] = colonne;
 					return position;
 				}
-
-		System.out.println("[ERREUR] Le joueur ne se trouve pas sur le plateau");
 		return position;
 	}
 

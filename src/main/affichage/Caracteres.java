@@ -17,11 +17,11 @@ public class Caracteres {
         Caracteres.enregistrerCaractere(Constantes.VALEUR_PIEGE, "🕸️", true);
         //Caracteres.enregistrerCaractere(2, "P");
 
-        Caracteres.enregistrerCaractere(5, "P");
+        Caracteres.enregistrerCaractere(Constantes.VALEUR_JOUEUR, "P");
 
         //Ennemis situé entre 10 et 20
-        Caracteres.enregistrerCaractere(10, "\uD83D\uDC2E", true);
-        Caracteres.enregistrerCaractere(11, "\uD83C\uDFF9", true);
+        Caracteres.enregistrerCaractere(Constantes.VALEUR_ARCHER, "\uD83D\uDC2E", true);
+        Caracteres.enregistrerCaractere(Constantes.VALEUR_TAUREAU, "\uD83C\uDFF9", true);
 
         Caracteres.enregistrerCaractere(42, "X");
         Caracteres.enregistrerCaractere(200, "x");

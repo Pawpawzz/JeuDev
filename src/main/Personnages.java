@@ -1,6 +1,7 @@
 package main;
 
 import main.affichage.AffichageTerrain;
+import main.outils.OutilsTableaux;
 
 import static main.Constantes.VALEUR_OBSTACLE;
 import static main.Constantes.VALEUR_PIEGE;
@@ -38,7 +39,8 @@ public class Personnages {
 	 * @return			Booléen, true si le déplacement est valide, false sinon
 	 */
 	public static boolean deplacementPossible(char direction, int[] position) {
-		return (Terrain.valeurCaseACote(direction, position) == 0);
+		int[][] terrain = Terrain.recupererTerrain();
+		return (OutilsTableaux.valeurCaseACote(terrain, direction, position) == 0);
 	}
 	
 	/**

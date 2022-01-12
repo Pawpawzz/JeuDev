@@ -1,28 +1,30 @@
 package main;
 
+import main.outils.OutilsTableaux;
+
 public class Competences {
 
     public static void charge(char direction, int[] position) {
         int [][] terrain = Terrain.recupererTerrain();
 
         //On vérifie si la prochaine case est un ennemi
-        int prochainCase = Terrain.valeurCaseACote(direction, position);
+        int prochainCase = OutilsTableaux.valeurCaseACote(terrain, direction, position);
 
         if(prochainCase >= Constantes.VALEUR_MIN_ENNEMI && prochainCase <= Constantes.VALEUR_MAX_ENNEMI) {
-            int[] posEnnemi = Terrain.positionCaseACote(direction, position);
-            int[] prochainePosition = Terrain.positionCaseACote(direction, posEnnemi);
+            int[] posEnnemi = OutilsTableaux.positionCaseACote(terrain, direction, position);
+            int[] prochainePosition = OutilsTableaux.positionCaseACote(terrain, direction, posEnnemi);
 
-            while(Terrain.valeurCaseACote(direction, posEnnemi) == 0) {
+            while(OutilsTableaux.valeurCaseACote(terrain, direction, posEnnemi) == 0) {
                 terrain[prochainePosition[0]][prochainePosition[1]] = terrain[posEnnemi[0]][posEnnemi[1]];
 
                 terrain[posEnnemi[0]][posEnnemi[1]] = 0;
 
                 posEnnemi = prochainePosition;
-                prochainePosition = Terrain.positionCaseACote(direction, posEnnemi);
+                prochainePosition = OutilsTableaux.positionCaseACote(terrain, direction, posEnnemi);
             }
 
             if(prochainePosition[0] != 1 && prochainePosition[1] != -1) {
-                if (Terrain.valeurCaseACote(direction, posEnnemi) == Constantes.VALEUR_PIEGE) {
+                if (OutilsTableaux.valeurCaseACote(terrain, direction, posEnnemi) == Constantes.VALEUR_PIEGE) {
                     System.out.println("On tue l'ennemi");
                     terrain[posEnnemi[0]][posEnnemi[1]] = 0;
                 }
@@ -98,4 +100,6 @@ public class Competences {
 
         } while(nbCaseX > 0 && nbCaseX < terrain.length && nbCaseY > 0 && nbCaseY < terrain.length && !aToucher);
     }
+
+
 }
