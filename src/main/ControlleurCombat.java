@@ -17,7 +17,7 @@ public class ControlleurCombat {
         int tour = 1;
         boolean evenementFrappe = false;
 
-        while(Personnages.recupererVie() > 0) {
+        while(Joueur.estEnVie()) {
             System.out.println("Tour n°" + tour);
             if (evenementFrappe)
             	Evenement.finEvent();

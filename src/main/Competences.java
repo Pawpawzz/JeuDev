@@ -117,14 +117,14 @@ public class Competences {
         	}
             break;
         case 'h':
-        	if (position[0]+2 < terrain.length && terrain[position[0]+2][position[1]] == 0) {
-            	terrain[position[0]+2][position[1]] = Constantes.VALEUR_JOUEUR;
+        	if (position[0]-2 < terrain.length && terrain[position[0]-2][position[1]] == 0) {
+            	terrain[position[0]-2][position[1]] = Constantes.VALEUR_JOUEUR;
             	terrain[position[0]][position[1]] = 0;
         	}
             break;
         case 'b':
-        	if (position[0]-2 >= 0 && terrain[position[0]-2][position[1]] == 0) {
-            	terrain[position[0]-2][position[1]] = Constantes.VALEUR_JOUEUR;
+        	if (position[0]+2 >= 0 && terrain[position[0]+2][position[1]] == 0) {
+            	terrain[position[0]+2][position[1]] = Constantes.VALEUR_JOUEUR;
             	terrain[position[0]][position[1]] = 0;
         	}
             break;
@@ -166,27 +166,34 @@ public class Competences {
 	 */
     public static boolean peutTirer (int[] posTireur, int[] posJoueur, char direction) {
     	int [][] terrain = Terrain.recupererTerrain();
+    	int x;
+    	int y;
+    	
     	switch(direction) {
-    		case 'g':
-    			for (int x = posTireur[1]-1; x > posJoueur[1]; x--)
-    				if (terrain[posTireur[0]][x] != 0 || terrain[posTireur[0]][x] != Constantes.VALEUR_PIEGE)
-    					return false;
-    			return true;
-    		case 'd':
-    			for (int x = posTireur[1]+1; x < posJoueur[1]; x++)
-    				if (terrain[posTireur[0]][x] != 0 || terrain[posTireur[0]][x] != Constantes.VALEUR_PIEGE)
-    					return false;
-    			return true;
-    		case 'h':
-    			for (int y = posTireur[0]+1; y < posJoueur[0]; y++)
-    				if (terrain[y][posTireur[1]] != 0 || terrain[y][posTireur[1]] != Constantes.VALEUR_PIEGE)
-    					return false;
-    			return true;
-    		case 'b':
-    			for (int y = posTireur[0]-1; y > posJoueur[0]; y--)
-    				if (terrain[y][posTireur[1]] != 0 || terrain[y][posTireur[1]] != Constantes.VALEUR_PIEGE)
-    					return false;
-    			return true;
+		case 'g':
+			x = posTireur[1]-1;
+			while ((terrain[posTireur[0]][x] == 0 || terrain[posTireur[0]][x] == Constantes.VALEUR_PIEGE) && x != posJoueur[1]) {
+				x--;
+			}
+			return x == posJoueur[1];
+		case 'd':
+			x = posTireur[1]+1;
+			while ((terrain[posTireur[0]][x] == 0 || terrain[posTireur[0]][x] == Constantes.VALEUR_PIEGE) && x != posJoueur[1]) {
+				x++;
+			}
+			return x == posJoueur[1];
+		case 'h':
+			y = posTireur[0]-1;
+			while ((terrain[y][posTireur[1]] == 0 || terrain[y][posTireur[1]] == Constantes.VALEUR_PIEGE) && y != posJoueur[0]) {
+				y--;
+			}
+			return y == posJoueur[0];
+		case 'b':
+			y = posTireur[0]+1;
+			while ((terrain[y][posTireur[1]] == 0 || terrain[y][posTireur[1]] == Constantes.VALEUR_PIEGE) && y != posJoueur[0]) {
+				y++;
+			}
+			return y == posJoueur[0];
     	}
     	return false;
     	
@@ -202,9 +209,9 @@ public class Competences {
     public static char tirDirection (int[] posTireur, int[] posJoueur, char axe) {
     	if (axe == 'y') {
     		if (posTireur[0] < posJoueur[0])
-    			return 'h';
-    		else
     			return 'b';
+    		else
+    			return 'h';
     	}
     	else {
     		if (posTireur[1] < posJoueur[1])

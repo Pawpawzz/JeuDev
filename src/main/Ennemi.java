@@ -27,13 +27,23 @@ public class Ennemi {
 
 
         for(int indexEnnemi = 0; indexEnnemi < toutLesEnnemis.size(); indexEnnemi++) {
+        	System.out.println();
             //System.out.println(terrain[toutLesEnnemis.get(indexEnnemi)[0]][toutLesEnnemis.get(indexEnnemi)[1]]);
-            System.out.println(String.format("Ennemi n°%s/%s", (indexEnnemi+1), toutLesEnnemis.size()));
+            System.out.println(String.format("Ennemi n°%s/%s ", (indexEnnemi+1), toutLesEnnemis.size()));
             int[] ennemi = toutLesEnnemis.get(indexEnnemi);
+            int typeEnnemi = terrain[ennemi[0]][ennemi[1]];
+            switch(typeEnnemi) {
+            case Constantes.VALEUR_TAUREAU:
+            	System.out.println(String.format("Tour taureau [%s][%s]", ennemi[0], ennemi[1]));
+            	break;
+            case Constantes.VALEUR_ARCHER:
+            	System.out.println(String.format("Tour archer[%s][%s]", ennemi[0], ennemi[1]));
+            	break;
+            }
             int casesRestantes = cheminAParcourir[ennemi[0]][ennemi[1]];
 
 
-            System.out.println(String.format("Je veux afficher le x et le y, ils sont égaux à [%s][%s]", ennemi[0], ennemi[1]));
+            //System.out.println(String.format("Je veux afficher le x et le y, ils sont égaux à [%s][%s]", ennemi[0], ennemi[1]));
 
 
             char[] directionValide = {'d', 'g', 'h', 'b'};
@@ -44,21 +54,24 @@ public class Ennemi {
             
             switch (valeurEnnemi) {
 	            case Constantes.VALEUR_TAUREAU:
-	                System.out.println("Distance " + OutilsEntites.distanceEntreDeux(positionJoueur, ennemi));
+	                //System.out.println("Distance " + OutilsEntites.distanceEntreDeux(positionJoueur, ennemi));
 	                if (OutilsEntites.distanceEntreDeux(positionJoueur, ennemi) == 1) {
 	                    char directionJoueur = OutilsEntites.recupererOrientation(ennemi, positionJoueur);
 	                    Competences.charge(directionJoueur, ennemi);
-	                    System.out.println("Le joueur se situe à " + directionJoueur);
+	                    System.out.println("Chargez !");
 	                    aAttaque = true;
 	                }
 	                break;
 	            case Constantes.VALEUR_ARCHER:
-	            	if (Competences.tirArc(ennemi))
+	            	if (Competences.tirArc(ennemi)) {
+	            		System.out.println("ca attaque !");
 	            		aAttaque = true;
+	            	}
 	                break;
 	            default:
 	                break;
             }
+            System.out.println("attaque: " + aAttaque);
             //Le joueur est à la position 1, donc si c'est égale à deux, cela signifie qu'il à côté
             //C'est légèrement plus rapide que de faire appel à Outils.distanceEntreDeux
             if(cheminAParcourir[ennemi[0]][ennemi[1]] != 2 && !aAttaque) {
@@ -67,7 +80,7 @@ public class Ennemi {
                     char directionActuelle = directionValide[indiceDirection];
 
                     int valeurCaseACote = OutilsTableaux.valeurCaseACote(cheminAParcourir, directionActuelle, ennemi);
-                    System.out.println(String.format("a %s il y a %s", directionActuelle, valeurCaseACote));
+                    //System.out.println(String.format("a %s il y a %s", directionActuelle, valeurCaseACote));
                     if (valeurCaseACote == casesRestantes - 1) {
                         System.out.println("Je me déplace wéwéwé");
                         if (Personnages.deplacementPossible(directionActuelle, ennemi)) {

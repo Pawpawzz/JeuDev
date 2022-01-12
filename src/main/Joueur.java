@@ -44,5 +44,10 @@ public class Joueur {
 				}
 		return position;
 	}
+	
+	public static boolean estEnVie() {
+		int[] pos = positionJoueur();
+		return ((pos[0] != -1 || pos[1] != -1) && Personnages.recupererVie() > 0);
+	}
 
 }
