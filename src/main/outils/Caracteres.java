@@ -23,9 +23,6 @@ public class Caracteres {
 
         Caracteres.enregistrerCaractere(42, "X");
         Caracteres.enregistrerCaractere(200, "x");
-        Caracteres.enregistrerCaractere(200, "m");
-
-
     }
 
     public static void enregistrerCaractere(int valeur, String caractere) {

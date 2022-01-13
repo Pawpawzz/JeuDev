@@ -114,13 +114,13 @@ public class Competences {
         	}
             break;
         case 'h':
-        	if (position[0]-2 < terrain.length && terrain[position[0]-2][position[1]] == 0) {
+        	if (position[0]-2 >= 0 && terrain[position[0]-2][position[1]] == 0) {
             	terrain[position[0]-2][position[1]] = Constantes.VALEUR_JOUEUR;
             	terrain[position[0]][position[1]] = 0;
         	}
             break;
         case 'b':
-        	if (position[0]+2 >= 0 && terrain[position[0]+2][position[1]] == 0) {
+        	if (position[0]+2 < terrain.length && terrain[position[0]+2][position[1]] == 0) {
             	terrain[position[0]+2][position[1]] = Constantes.VALEUR_JOUEUR;
             	terrain[position[0]][position[1]] = 0;
         	}
