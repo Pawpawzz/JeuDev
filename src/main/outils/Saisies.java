@@ -42,7 +42,6 @@ public class Saisies {
         else
             return false;
     }
-<<<<<<< HEAD
 <<<<<<< Updated upstream
     
     public static String prochaineLigne() {
@@ -53,6 +52,4 @@ public class Saisies {
         return scanner.nextLine();
 >>>>>>> Stashed changes
     }
-=======
->>>>>>> parent of 21ff9c2 (PUSH)
 }
