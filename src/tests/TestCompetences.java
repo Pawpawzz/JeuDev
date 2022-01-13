@@ -58,7 +58,7 @@ public class TestCompetences {
 
     @Test
     public void TestGrappin() {
-	Terrain.genererTerrain(5, true);
+    	Terrain.genererTerrain(5, true);
 		
 		int[][] terrain = Terrain.recupererTerrain();
 		
@@ -95,6 +95,31 @@ public class TestCompetences {
 
     @Test
     public void TestCharge() {
-
+    	Terrain.genererTerrain(5, true);
+		
+		int[][] terrain = Terrain.recupererTerrain();
+		
+		terrain[2][2] = VALEUR_JOUEUR;
+		
+		terrain[1][2] = VALEUR_MIN_ENNEMI; //en haut
+		
+		terrain[2][3] = VALEUR_MIN_ENNEMI; //à droite
+		terrain[2][4] = VALEUR_OBSTACLE;
+		
+		
+		terrain[3][2] = VALEUR_MIN_ENNEMI; //en bas
+		terrain[4][2] = VALEUR_PIEGE;
+		
+		int[] posJoueur = {2, 2};
+		
+		Competences.charge('h', posJoueur);
+		assertEquals(VALEUR_MIN_ENNEMI, terrain[0][2]);
+		
+		Competences.charge('d', posJoueur);
+		assertEquals(VALEUR_MIN_ENNEMI, terrain[2][3]);
+		
+		Competences.charge('b', posJoueur);
+		assertEquals(0, terrain[3][2]);
+		
     }
 }

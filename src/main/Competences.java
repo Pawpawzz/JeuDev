@@ -26,7 +26,6 @@ public class Competences {
 
             if(prochainePosition[0] != 1 && prochainePosition[1] != -1) {
                 if (OutilsTableaux.valeurCaseACote(terrain, direction, posEnnemi) == Constantes.VALEUR_PIEGE) {
-                    System.out.println("On tue l'ennemi");
                     terrain[posEnnemi[0]][posEnnemi[1]] = 0;
                 }
             }
