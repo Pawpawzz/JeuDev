@@ -27,4 +27,6 @@ public class Constantes {
     //Ce paramètre signifie qu'il y aura un évènement tous les x tours
     public final static int TOUR_EVENEMENT = 5;
 
+    public final static int VALEUR_AFFICHAGE_EVENEMENT = 42;
+
 }

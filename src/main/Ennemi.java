@@ -36,7 +36,7 @@ public class Ennemi {
             switch (valeurEnnemi) {
 	            case Constantes.VALEUR_TAUREAU:
 
-                    System.out.println(String.format("Tour taureau[%s][%s]", ennemi[0], ennemi[1]));
+                    System.out.print(String.format("Tour taureau[%s][%s] ", ennemi[0], ennemi[1]));
 	                if (cheminAParcourir[ennemi[0]][ennemi[1]] == 2) {
 
                         char directionJoueur = OutilsEntites.recupererOrientation(ennemi, positionJoueur);
@@ -45,7 +45,7 @@ public class Ennemi {
 	                }
 	                break;
 	            case Constantes.VALEUR_ARCHER:
-                    System.out.println(String.format("Tour archer[%s][%s]", ennemi[0], ennemi[1]));
+                    System.out.print(String.format("Tour archer[%s][%s] ", ennemi[0], ennemi[1]));
 	            	if (Competences.tirArc(ennemi)) {
 	            		aAttaque = true;
 	            	}

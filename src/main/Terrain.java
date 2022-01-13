@@ -24,9 +24,11 @@ public class Terrain {
     public static void placerEnnemis(int[] tabEnnemis) {
     	for (int Ennemi: tabEnnemis) {
     		int[] position = {(int) (Math.random()*_terrain.length),(int) (Math.random()*_terrain.length)};
-    		while (_terrain[position[0]][position[1]] != 0)
-    			position[0] = (int) (Math.random()*_terrain.length);
-    			position[1] = (int) (Math.random()*_terrain.length);
+    		while (_terrain[position[0]][position[1]] != 0) {
+                position[0] = (int) (Math.random() * _terrain.length);
+                position[1] = (int) (Math.random() * _terrain.length);
+            }
+
             _terrain[position[0]][position[1]] = Ennemi;
     	}
     }

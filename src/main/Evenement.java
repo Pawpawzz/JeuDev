@@ -6,10 +6,10 @@ public class Evenement {
 	private static int [][] terrainEvenement;
 	
 	public static void main(String[] args) {
-		terrainEvenement = new int[10][10];
+		terrainEvenement = new int[7][7];
 		
-		evenementCarréHaché();
-		
+		//evenementCarréHaché();
+		evenementCercle();
 		afficherTableau();
 	}
 	
@@ -25,7 +25,7 @@ public class Evenement {
     public static void genererUnEvenement() {
     	copieTerrainVide();
     	
-    	int nEvenement =  (int)(Math.random()*3)+1;
+    	int nEvenement =  (int)(Math.random()*4)+1;
     	System.out.println("Event n°" + nEvenement);
     	
     	switch(nEvenement) {
@@ -59,7 +59,22 @@ public class Evenement {
     }
 
     public static void evenementCercle() {
-    	 
+		int rayon = terrainEvenement.length / 2;
+
+		if(terrainEvenement.length % 2 == 0)
+			rayon -= 1;
+
+		for(int angle = 0; angle < 360; angle += 15) {
+			int rotationX =(int) Math.round(Math.cos(Math.toRadians(angle)) * rayon);
+			int rotationY = (int) Math.round(Math.sin(Math.toRadians(angle)) * rayon);
+
+			int translatationX = rotationX + rayon;
+			int translatationY = rotationY + rayon;
+
+			if(translatationX >= 0 && translatationY >= 0 && translatationX < terrainEvenement.length && translatationY < terrainEvenement.length)
+				terrainEvenement[translatationY][translatationX] = 42;
+			//System.out.println(String.format("Y : %s X %s", rotationY + rayon, rotationX + rayon));
+		}
     }
     
     public static void evenementUneCaseSurTrois() {

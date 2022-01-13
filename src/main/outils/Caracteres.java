@@ -2,6 +2,8 @@ package main.outils;
 
 import main.Constantes;
 
+import static main.Constantes.VALEUR_AFFICHAGE_EVENEMENT;
+
 public class Caracteres {
     static String[] tableauCaracteres = new String[Constantes.CARACTERES_A_CODER];
     static boolean[] tableauTailleCaracteres = new boolean[Constantes.CARACTERES_A_CODER];
@@ -21,8 +23,7 @@ public class Caracteres {
         Caracteres.enregistrerCaractere(Constantes.VALEUR_ARCHER, "\uD83C\uDFF9", true);
         Caracteres.enregistrerCaractere(Constantes.VALEUR_TAUREAU, "\uD83D\uDC2E", true);
 
-        Caracteres.enregistrerCaractere(42, "X");
-        Caracteres.enregistrerCaractere(200, "x");
+        Caracteres.enregistrerCaractere(VALEUR_AFFICHAGE_EVENEMENT, "X");
     }
 
     public static void enregistrerCaractere(int valeur, String caractere) {
