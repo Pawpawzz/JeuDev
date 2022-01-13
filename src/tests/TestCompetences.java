@@ -60,10 +60,6 @@ public class TestCompetences {
     public void TestGrappin() {
     	Terrain.genererTerrain(5, true);
 
-        Caracteres.chargerCaracteres();
-	    Terrain.genererTerrain(5, true);
-
-		
 		int[][] terrain = Terrain.recupererTerrain();
 		
 		terrain[2][2] = VALEUR_JOUEUR;
@@ -80,9 +76,8 @@ public class TestCompetences {
 		terrain[2][0] = VALEUR_MIN_ENNEMI; //à gauche
 		
 		int[] posJoueur = {2, 2};
-		AffichageTerrain.afficher();
+		
 		Competences.grappin('h', posJoueur);
-		AffichageTerrain.afficher();
 		assertEquals(VALEUR_MIN_ENNEMI, terrain[1][2]);
 		assertEquals(VALEUR_MIN_ENNEMI, terrain[0][2]);
 		
