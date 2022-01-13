@@ -31,16 +31,21 @@ public class Ennemi {
             boolean estDeplace = false;
             boolean aAttaque = false;
             int valeurEnnemi = terrain[ennemi[0]][ennemi[1]];
-            
+
+
             switch (valeurEnnemi) {
 	            case Constantes.VALEUR_TAUREAU:
-	                if (OutilsEntites.distanceEntreDeux(positionJoueur, ennemi) == 1) {
-	                    char directionJoueur = OutilsEntites.recupererOrientation(ennemi, positionJoueur);
+
+                    System.out.println(String.format("Tour taureau[%s][%s]", ennemi[0], ennemi[1]));
+	                if (cheminAParcourir[ennemi[0]][ennemi[1]] == 2) {
+
+                        char directionJoueur = OutilsEntites.recupererOrientation(ennemi, positionJoueur);
 	                    Competences.charge(directionJoueur, ennemi);
 	                    aAttaque = true;
 	                }
 	                break;
 	            case Constantes.VALEUR_ARCHER:
+                    System.out.println(String.format("Tour archer[%s][%s]", ennemi[0], ennemi[1]));
 	            	if (Competences.tirArc(ennemi)) {
 	            		aAttaque = true;
 	            	}
@@ -65,14 +70,7 @@ public class Ennemi {
                     indiceDirection++;
                 }
             }
-            switch(typeEnnemi) {
-            case Constantes.VALEUR_TAUREAU:
-            	System.out.println(String.format("Tour taureau [%s][%s]", ennemi[0], ennemi[1]));
-            	break;
-            case Constantes.VALEUR_ARCHER:
-            	System.out.println(String.format("Tour archer[%s][%s]", ennemi[0], ennemi[1]));
-            	break;
-            }
+
             AffichagePersonnages.afficherAction(aAttaque);
         }
 

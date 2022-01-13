@@ -8,15 +8,10 @@ import java.util.ArrayList;
 public class OutilsEntites {
 
     public static int distanceEntreDeux(int premierePosition[], int secondePosition[]) {
-        int distance1 = premierePosition[0] + premierePosition[1];
-        int distance2 = secondePosition[0] + secondePosition[1];
+        int distanceX = Math.abs(secondePosition[1] + premierePosition[1]);
+        int distanceY = Math.abs(secondePosition[0] + premierePosition[0]);
 
-        int distanceFinal = distance1 - distance2;
-
-        if(distanceFinal < 0)
-            return -distanceFinal;
-        else
-            return distanceFinal;
+        return distanceX + distanceY;
     }
     /**
      * Permet de récupérer dans quel direction se situe une position par rapport à une autre,

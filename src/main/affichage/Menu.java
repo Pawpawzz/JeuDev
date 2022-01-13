@@ -6,8 +6,7 @@ import main.outils.Saisies;
 
 import java.util.Scanner;
 
-import static main.outils.Saisies.deplacementSyntaxeValide;
-import static main.outils.Saisies.saisieForcee;
+import static main.outils.Saisies.*;
 
 public class Menu {
 
@@ -50,33 +49,64 @@ public class Menu {
 
         switch (saisieForcee("1. Se déplacer\n2. Grappin\n3. Charge\n4. Saut", 1, 4)) {
             case 1:
-
                 String deplacement;
                 do {
                     System.out.print("Format : nx (n = {g, d, h, v}, x est un nombre) :");
                     deplacement = Saisies.prochaineLigne();
                 }
-                while(!deplacementSyntaxeValide(deplacement));
-                Joueur.deplacement(deplacement);
+                while(!deplacementSyntaxeValide(deplacement) && deplacement.charAt(0) != 'r');
+
+                if(deplacement.charAt(0) != 'r')
+                    Joueur.deplacement(deplacement);
+                else
+                    afficherActionsJoueur();
 
                 break;
 
             case 2:
 
-                System.out.print("Quel direction ? : ");
-                direction = Saisies.prochaineLigne().charAt(0);
-                Competences.grappin(direction, positionJoueur);
-                //Competences.grappin();
+                do {
+                    System.out.print("Quel direction ? : ");
+                    deplacement = Saisies.prochaineLigne();
+
+                } while(!directionValide(deplacement) && deplacement.charAt(0) != 'r');
+
+                direction = deplacement.charAt(0);
+
+                if(direction == 'r')
+                    afficherActionsJoueur();
+                else
+                    Competences.grappin(direction, positionJoueur);
+
                 break;
             case 3:
-                System.out.print("Quel direction ? : ");
-                direction = Saisies.prochaineLigne().charAt(0);
-                Competences.charge(direction, positionJoueur);
+                do {
+                    System.out.print("Quel direction ? : ");
+                    deplacement = Saisies.prochaineLigne();
+
+                } while(!directionValide(deplacement) && deplacement.charAt(0) != 'r');
+
+                direction = deplacement.charAt(0);
+
+                if(direction == 'r')
+                    afficherActionsJoueur();
+                else
+                    Competences.charge(direction, positionJoueur);
+
                 break;
             case 4:
-            	System.out.print("Quel direction ? : ");
-                direction = Saisies.prochaineLigne().charAt(0);
-                Competences.saut(direction, positionJoueur);
+                do {
+                    System.out.print("Quel direction ? : ");
+                    deplacement = Saisies.prochaineLigne();
+
+                } while(!directionValide(deplacement) && deplacement.charAt(0) != 'r');
+
+                direction = deplacement.charAt(0);
+
+                if(direction == 'r')
+                    afficherActionsJoueur();
+                else
+                    Competences.saut(direction, positionJoueur);
                 break;
         }
 

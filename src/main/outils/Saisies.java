@@ -42,6 +42,16 @@ public class Saisies {
         else
             return false;
     }
+
+    public static boolean directionValide(String valeurSaisie) {
+        if(valeurSaisie != "") {
+            char direction = valeurSaisie.charAt(0);
+            if (direction == 'd' || direction == 'g' || direction == 'h' || direction == 'b')
+                return true;
+        }
+
+        return false;
+    }
     
     public static String prochaineLigne() {
     	return scanner.nextLine();
