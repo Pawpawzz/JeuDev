@@ -2,7 +2,10 @@ package main;
 
 import main.affichage.Menu;
 
-import static main.Constantes.*;
+import static main.Constantes.VALEUR_ARCHER;
+import static main.Constantes.VALEUR_TAUREAU;
+import static main.Constantes.TOUR_EVENEMENT;
+
 
 public class ControlleurCombat {
 
@@ -21,7 +24,7 @@ public class ControlleurCombat {
             System.out.println("Tour n°" + tour);
             if (evenementFrappe)
             	Evenement.finEvent();
-            if (tour%5 == 0) {
+            if (tour%TOUR_EVENEMENT == 0) {
             	Evenement.debutEvent();
             	evenementFrappe = true;
             }

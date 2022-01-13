@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 import main.Personnages;
 import main.Terrain;
 import main.affichage.AffichageTerrain;
-import main.affichage.Caracteres;
+import main.outils.Caracteres;
 import static main.Constantes.VALEUR_JOUEUR;
 import static main.Constantes.VALEUR_OBSTACLE;
 import static main.Constantes.VALEUR_PIEGE;

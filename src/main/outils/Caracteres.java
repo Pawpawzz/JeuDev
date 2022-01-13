@@ -1,12 +1,10 @@
-package main.affichage;
+package main.outils;
 
 import main.Constantes;
-import main.Terrain;
 
 public class Caracteres {
-    final static int CARACTERES_A_CODER = 255;
-    static String[] tableauCaracteres = new String[CARACTERES_A_CODER];
-    static boolean[] tableauTailleCaracteres = new boolean[CARACTERES_A_CODER];
+    static String[] tableauCaracteres = new String[Constantes.CARACTERES_A_CODER];
+    static boolean[] tableauTailleCaracteres = new boolean[Constantes.CARACTERES_A_CODER];
 
     public static void chargerCaracteres() {
 

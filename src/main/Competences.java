@@ -36,13 +36,11 @@ public class Competences {
         int[][] terrain = Terrain.recupererTerrain();
 
         int joueurCoordY = position[0];
-
         int joueurCoordX = position[1];
         //On part de la position actuelle pour lancer le grappin
         int nbCaseX = joueurCoordX;
         int nbCaseY = joueurCoordY;
 
-        System.out.println(String.format("Position joueur %s %s", joueurCoordY, joueurCoordX ));
         boolean aToucher = false;
         boolean piege = false;
 
@@ -63,8 +61,6 @@ public class Competences {
                     nbCaseY++;
                     break;
             }
-
-            //System.out.println(String.format("CoordY : %s CoordX : %s", nbCaseY, nbCaseX));
             int valeurCase = terrain[nbCaseY][nbCaseX];
 
             System.out.println("Valeur case " + valeurCase);

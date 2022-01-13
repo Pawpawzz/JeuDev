@@ -1,10 +1,8 @@
 package main;
 
-import main.affichage.AffichagePersonnage;
-import main.affichage.AffichageTerrain;
-import main.affichage.Caracteres;
+import main.outils.Caracteres;
 import main.affichage.Menu;
-import main.outils.Convertisseur;
+import main.outils.Saisies;
 
 import java.util.Scanner;
 
@@ -14,7 +12,7 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 
 
-		Menu.definirScanner(scanner);
+		Saisies.definirScanner(scanner);
 		Caracteres.chargerCaracteres();
 
 

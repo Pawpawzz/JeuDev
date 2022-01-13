@@ -5,59 +5,15 @@ import main.outils.Chemin;
 
 import java.util.Scanner;
 
+import static main.outils.Saisies.deplacementSyntaxeValide;
+import static main.outils.Saisies.saisieForcee;
+
 public class Menu {
 
     public static Scanner scanner;
 
-    public static void definirScanner(Scanner sc) {
-        scanner = sc;
-    }
-
-    private static int saisieForcee(String textAffche, int min, int max) {
-        //-2 pour signifie que le choix est incorrecte par défaut
-        int choix =-2;
-        do {
-            System.out.println(textAffche);
-
-            String chaineCarChoix = scanner.nextLine();
-
-            //Permet d'empêcher de saisir des lettres ou toute autre caractère n'étant pas un nombre
-            if(estUnNombre(chaineCarChoix)) {
-                choix = Integer.parseInt(chaineCarChoix);
-            }
-
-
-        } while(choix > max || choix < min);
-
-        return choix;
-    }
-
-    public static boolean estUnNombre(String nombre) {
-        for(int chiffre = 0; chiffre < nombre.length(); chiffre++) {
-            if(nombre.charAt(chiffre) < 48 || nombre.charAt(chiffre) > 57)
-                return false;
-        }
-
-        return true;
-    }
-
-    public static boolean deplacementSyntaxeValide(String deplacement) {
-        char directionDeplacement = deplacement.charAt(0);
-
-
-
-        if(directionDeplacement == 'h' || directionDeplacement == 'b' || directionDeplacement == 'g' || directionDeplacement == 'd')
-            if (estUnNombre(deplacement.substring(1)))
-                return true;
-            else
-                return false;
-        else
-            return false;
-    }
-
     public static void afficherMenuPrincipal() {
         System.out.println("Bienvenue dans RodgeLike");
-
 
         switch(saisieForcee("1. Jouer\n2. Boutique\n3. Tutoriel\n4. Quitter", 1, 4)) {
             case 1:
@@ -81,7 +37,6 @@ public class Menu {
                     default:
                         break;
                 }
-
         }
     }
 

@@ -21,4 +21,10 @@ public class Constantes {
     //On part du principe qu'il y a seulement 255 caractères à coder
     public final static int CARACTERES_A_CODER = 255;
 
+
+
+    //Paramètres du jeu
+    //Ce paramètre signifie qu'il y aura un évènement tous les x tours
+    public final static int TOUR_EVENEMENT = 5;
+
 }

@@ -1,7 +1,7 @@
 package main.affichage;
 
 import main.Terrain;
-import main.affichage.Caracteres;
+import main.outils.Caracteres;
 
 public class AffichageTerrain  {
     final static int LARGEUR_CASE = 6;
