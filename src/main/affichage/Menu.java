@@ -2,7 +2,6 @@ package main.affichage;
 
 import main.*;
 import main.outils.Chemin;
-import main.outils.Saisies;
 
 import java.util.Scanner;
 
@@ -42,7 +41,7 @@ public class Menu {
     }
 
     public static void afficherActionsJoueur() {
-        AffichagePersonnages.afficherNombreVie();
+        AffichagePersonnage.afficherNombreVie();
         AffichageTerrain.afficher();
         //Chemin.afficherTableau(Terrain.recupererTerrain());
         int[] positionJoueur = Joueur.positionJoueur();
@@ -54,7 +53,7 @@ public class Menu {
                 String deplacement;
                 do {
                     System.out.print("Format : nx (n = {g, d, h, v}, x est un nombre) :");
-                    deplacement = Saisies.prochaineLigne();
+                    deplacement = scanner.nextLine();
                 }
                 while(!deplacementSyntaxeValide(deplacement));
                 Joueur.deplacement(deplacement);
@@ -64,18 +63,18 @@ public class Menu {
             case 2:
 
                 System.out.print("Quel direction ? : ");
-                direction = Saisies.prochaineLigne().charAt(0);
+                direction = scanner.nextLine().charAt(0);
                 Competences.grappin(direction, positionJoueur);
                 //Competences.grappin();
                 break;
             case 3:
                 System.out.print("Quel direction ? : ");
-                direction = Saisies.prochaineLigne().charAt(0);
+                direction = scanner.nextLine().charAt(0);
                 Competences.charge(direction, positionJoueur);
                 break;
             case 4:
             	System.out.print("Quel direction ? : ");
-                direction = Saisies.prochaineLigne().charAt(0);
+                direction = scanner.nextLine().charAt(0);
                 Competences.saut(direction, positionJoueur);
                 break;
         }

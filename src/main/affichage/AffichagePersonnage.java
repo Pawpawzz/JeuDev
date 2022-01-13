@@ -2,7 +2,7 @@ package main.affichage;
 
 import main.Personnages;
 
-public class AffichagePersonnages {
+public class AffichagePersonnage {
     public static void afficherNombreVie() {
         int nbVie = Personnages.recupererVie();
         int maxVie = Personnages.recuperMaxVie();
@@ -16,13 +16,4 @@ public class AffichagePersonnages {
 
         System.out.println();
     }
-
-    
-    public static void afficherAction(boolean attaque) {
-    	if (attaque)
-    		System.out.println("Attaque");
-    	else
-    		System.out.println("Se déplace");
-    }
-    
 }
