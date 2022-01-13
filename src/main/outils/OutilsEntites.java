@@ -2,20 +2,6 @@ package main.outils;
 
 public class OutilsEntites {
 
-    public static void main (String[] args) {
-        int[] posUn = {1,1};
-        int[] posDeux = {0,0};
-
-        System.out.println(distanceEntreDeux(posUn, posDeux));
-        System.out.println(recupererOrientation(posUn, posDeux));
-
-        for(int i = 0; i < 100; i++) {
-            //System.out.println("On devrait se diriger vers " + recupererDirection(posUn, posDeux));
-
-        }
-
-    }
-
     public static int distanceEntreDeux(int premierePosition[], int secondePosition[]) {
         int distance1 = premierePosition[0] + premierePosition[1];
         int distance2 = secondePosition[0] + secondePosition[1];

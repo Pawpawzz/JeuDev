@@ -6,7 +6,7 @@ public class Evenement {
 	private static int [][] terrainEvenement;
 	
 	public static void main(String[] args) {
-		terrainEvenement = new int[15][15];
+		terrainEvenement = new int[10][10];
 		
 		evenementCarréHaché();
 		
@@ -25,7 +25,7 @@ public class Evenement {
     public static void genererUnEvenement() {
     	copieTerrainVide();
     	
-    	int nEvenement =  (int)(Math.random()*4)+1;
+    	int nEvenement =  (int)(Math.random()*3)+1;
     	System.out.println("Event n°" + nEvenement);
     	
     	switch(nEvenement) {
@@ -33,13 +33,13 @@ public class Evenement {
     			evenementCroix();
     			break;
     		case 2:
-    			evenementCercle();
+    			evenementCarréHaché();
     			break;
     		case 3:
     			evenementUneCaseSurTrois();
     			break;
     		case 4:
-    			evenementCarréHaché();
+    			evenementCercle();
     			break;
     	}
     }
@@ -73,7 +73,7 @@ public class Evenement {
     
     public static void evenementCarréHaché() { //et non pas steak haché
     	for (int ligne = 1; ligne < terrainEvenement.length-1; ligne++) {
-    		if (ligne%(terrainEvenement.length/4) != 0)
+    		if (ligne%(terrainEvenement.length/2) != 0)
     			for (int colonne = 1; colonne < terrainEvenement.length-1; colonne++) {
     				terrainEvenement[ligne][colonne] = 42;
     		}

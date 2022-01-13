@@ -63,7 +63,6 @@ public class Competences {
             }
             int valeurCase = terrain[nbCaseY][nbCaseX];
 
-            System.out.println("Valeur case " + valeurCase);
             if(valeurCase == Constantes.VALEUR_OBSTACLE) {
                 aToucher = true;
             }
@@ -107,8 +106,8 @@ public class Competences {
             }
             break;
         case 'g':
-        	 if (position[0]-2 >= 0 && terrain[position[0]-2][position[1]] == 0) {
-             	terrain[position[0]][position[1]+2] = Constantes.VALEUR_JOUEUR;
+        	 if (position[1]-2 >= 0 && terrain[position[0]][position[1]-2] == 0) {
+             	terrain[position[0]][position[1]-2] = Constantes.VALEUR_JOUEUR;
              	terrain[position[0]][position[1]] = 0;
         	}
             break;
@@ -145,7 +144,6 @@ public class Competences {
     	else
     		return false;
 		if (peutTirer(posTireur, posJoueur, direction)) {
-			System.out.println("L'archer tire, vous perdez une vie");
 			Personnages.modifierVie(-1);
 			return true;
 		}
