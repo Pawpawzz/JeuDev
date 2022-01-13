@@ -24,22 +24,10 @@ public class ControlleurCombat {
         while(Joueur.estEnVie() && recupererToutesLesPositionEnnemis().size() > 0) {
 
             System.out.println("Tour n°" + tour);
-<<<<<<< Updated upstream
-            if (evenementFrappe) {
-            	Evenement.finEvent();
-                evenementFrappe = false;
-            }
-            if (tour%TOUR_EVENEMENT == 0) {
-            	Evenement.debutEvent();
-            	evenementFrappe = true;
-=======
 
-            if (evenementFrappe)
+            if (evenementFrappe) {
                 Evenement.finEvent();
-            if (tour % TOUR_EVENEMENT == 0) {
-                Evenement.debutEvent();
-                evenementFrappe = true;
->>>>>>> Stashed changes
+                evenementFrappe = false;
             }
 
             Menu.afficherActionsJoueur();
