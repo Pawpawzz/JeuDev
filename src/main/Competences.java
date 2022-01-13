@@ -1,5 +1,6 @@
 package main;
 
+import main.outils.OutilsEntites;
 import main.outils.OutilsTableaux;
 
 public class Competences {
@@ -44,56 +45,57 @@ public class Competences {
         boolean aToucher = false;
         boolean piege = false;
 
-        do {
-            switch (direction) {
-                case 'd':
-                    nbCaseX++;
-                    break;
-                case 'g':
-                    nbCaseX--;
-                    break;
+		int valeurACote = OutilsTableaux.valeurCaseACote(terrain, direction, position);
+		if(valeurACote <= Constantes.VALEUR_MIN_ENNEMI || valeurACote >= Constantes.VALEUR_MAX_ENNEMI) {
+			do {
+				switch (direction) {
+					case 'd':
+						nbCaseX++;
+						break;
+					case 'g':
+						nbCaseX--;
+						break;
 
-                case 'h':
-                    nbCaseY--;
-                    break;
+					case 'h':
+						nbCaseY--;
+						break;
 
-                case 'b':
-                    nbCaseY++;
-                    break;
-            }
-            int valeurCase = terrain[nbCaseY][nbCaseX];
+					case 'b':
+						nbCaseY++;
+						break;
+				}
+				int valeurCase = terrain[nbCaseY][nbCaseX];
 
-            if(valeurCase == Constantes.VALEUR_OBSTACLE) {
-                aToucher = true;
-            }
-            
-            if (valeurCase == Constantes.VALEUR_PIEGE) {
-            	piege = true;
-            }
-            
-            else if(valeurCase >= Constantes.VALEUR_MIN_ENNEMI && valeurCase <= Constantes.VALEUR_MAX_ENNEMI) {
-                //Pour savoir ou on doit placer l'ennemi en fonction de la direction
-            	if (!piege)
-	                switch(direction) {
-	                    case 'd':
-	                        terrain[joueurCoordY][joueurCoordX + 1] = valeurCase;
-	                        break;
-	                    case 'g':
-	                        terrain[joueurCoordY][joueurCoordX -1] = valeurCase;
-	                        break;
-	                    case 'h':
-	                        terrain[joueurCoordY - 1][joueurCoordX] = valeurCase;
-	                        break;
-	                    case 'b':
-	                        terrain[joueurCoordY + 1][joueurCoordX] = valeurCase;
-	                        break;
-	                }
+				if (valeurCase == Constantes.VALEUR_OBSTACLE) {
+					aToucher = true;
+				}
 
-                terrain[nbCaseY][nbCaseX] = 0;
-                aToucher = true;
-            }
+				if (valeurCase == Constantes.VALEUR_PIEGE) {
+					piege = true;
+				} else if (valeurCase >= Constantes.VALEUR_MIN_ENNEMI && valeurCase <= Constantes.VALEUR_MAX_ENNEMI) {
+					//Pour savoir ou on doit placer l'ennemi en fonction de la direction
+					if (!piege)
+						switch (direction) {
+							case 'd':
+								terrain[joueurCoordY][joueurCoordX + 1] = valeurCase;
+								break;
+							case 'g':
+								terrain[joueurCoordY][joueurCoordX - 1] = valeurCase;
+								break;
+							case 'h':
+								terrain[joueurCoordY - 1][joueurCoordX] = valeurCase;
+								break;
+							case 'b':
+								terrain[joueurCoordY + 1][joueurCoordX] = valeurCase;
+								break;
+						}
 
-        } while(nbCaseX > 0 && nbCaseX < terrain.length && nbCaseY > 0 && nbCaseY < terrain.length && !aToucher);
+					terrain[nbCaseY][nbCaseX] = 0;
+					aToucher = true;
+				}
+
+			} while (nbCaseX > 0 && nbCaseX < terrain.length && nbCaseY > 0 && nbCaseY < terrain.length && !aToucher);
+		}
     }
     
     public static void saut(char direction, int[] position) {
