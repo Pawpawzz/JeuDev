@@ -1,5 +1,10 @@
 package main.outils;
 
+import main.Constantes;
+import main.Terrain;
+
+import java.util.ArrayList;
+
 public class OutilsEntites {
 
     public static void main (String[] args) {
@@ -27,7 +32,6 @@ public class OutilsEntites {
         else
             return distanceFinal;
     }
-
     /**
      * Permet de récupérer dans quel direction se situe une position par rapport à une autre,
      * N'est valide que pour les cases côte à côte horizontalement ou verticalement.
@@ -58,9 +62,22 @@ public class OutilsEntites {
 
     }
 
+    public static ArrayList<int[]> recupererToutesLesPositionEnnemis() {
+        int[][] terrain = Terrain.recupererTerrain();
+        ArrayList<int[]> positionEnnemis = new ArrayList<int[]>();
 
-    public static char[] trouverChemin() {
-        char[] chemin = new char[1];
-        return chemin;
+        for(int caseY = 0; caseY < terrain.length; caseY++) {
+            for(int caseX = 0; caseX < terrain.length; caseX++) {
+                int valeurCase = terrain[caseY][caseX];
+                if(valeurCase >= Constantes.VALEUR_MIN_ENNEMI && valeurCase <= Constantes.VALEUR_MAX_ENNEMI) {
+                    int[] positionEnnemi = new int[2];
+                    positionEnnemi[1] = caseX;
+                    positionEnnemi[0] = caseY;
+                    positionEnnemis.add(positionEnnemi);
+                }
+            }
+        }
+
+        return positionEnnemis;
     }
 }
