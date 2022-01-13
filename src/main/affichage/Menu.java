@@ -54,7 +54,11 @@ public class Menu {
                 String deplacement;
                 do {
                     System.out.print("Format : nx (n = {g, d, h, v}, x est un nombre) :");
+<<<<<<< Updated upstream
                     deplacement = Saisies.prochaineLigne();
+=======
+                    deplacement = Saisies.nextLine();
+>>>>>>> Stashed changes
                 }
                 while(!deplacementSyntaxeValide(deplacement));
                 Joueur.deplacement(deplacement);
@@ -64,18 +68,30 @@ public class Menu {
             case 2:
 
                 System.out.print("Quel direction ? : ");
+<<<<<<< Updated upstream
                 direction = Saisies.prochaineLigne().charAt(0);
+=======
+                direction = Saisies.nextLine().charAt(0);
+>>>>>>> Stashed changes
                 Competences.grappin(direction, positionJoueur);
                 //Competences.grappin();
                 break;
             case 3:
                 System.out.print("Quel direction ? : ");
+<<<<<<< Updated upstream
                 direction = Saisies.prochaineLigne().charAt(0);
+=======
+                direction = Saisies.nextLine().charAt(0);
+>>>>>>> Stashed changes
                 Competences.charge(direction, positionJoueur);
                 break;
             case 4:
             	System.out.print("Quel direction ? : ");
+<<<<<<< Updated upstream
                 direction = Saisies.prochaineLigne().charAt(0);
+=======
+                direction = Saisies.nextLine().charAt(0);
+>>>>>>> Stashed changes
                 Competences.saut(direction, positionJoueur);
                 break;
         }

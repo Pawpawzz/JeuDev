@@ -5,6 +5,7 @@ import main.affichage.Menu;
 import static main.Constantes.VALEUR_ARCHER;
 import static main.Constantes.VALEUR_TAUREAU;
 import static main.Constantes.TOUR_EVENEMENT;
+import static main.outils.OutilsEntites.recupererToutesLesPositionEnnemis;
 
 
 public class ControlleurCombat {
@@ -20,8 +21,10 @@ public class ControlleurCombat {
         int tour = 1;
         boolean evenementFrappe = false;
 
-        while(Joueur.estEnVie()) {
+        while(Joueur.estEnVie() && recupererToutesLesPositionEnnemis().size() > 0) {
+
             System.out.println("Tour n°" + tour);
+<<<<<<< Updated upstream
             if (evenementFrappe) {
             	Evenement.finEvent();
                 evenementFrappe = false;
@@ -29,18 +32,27 @@ public class ControlleurCombat {
             if (tour%TOUR_EVENEMENT == 0) {
             	Evenement.debutEvent();
             	evenementFrappe = true;
+=======
+
+            if (evenementFrappe)
+                Evenement.finEvent();
+            if (tour % TOUR_EVENEMENT == 0) {
+                Evenement.debutEvent();
+                evenementFrappe = true;
+>>>>>>> Stashed changes
             }
+
             Menu.afficherActionsJoueur();
-            /*System.out.println(">Mouvement ennemis<");
-             */
             Ennemi.effectuerTourEnnemis();
-            //System.out.println("[TEST] Tu perds une vie ");*/
 
+            tour += 1;
 
-            tour+=1;
         }
 
-        System.out.println("Tu as perdu");
+        if(Joueur.estEnVie())
+            System.out.println("Vous avez gagné");
+        else
+            System.out.println("Vous avez perdu");
 
     }
 }

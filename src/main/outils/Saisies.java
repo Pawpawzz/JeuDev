@@ -42,8 +42,14 @@ public class Saisies {
         else
             return false;
     }
+<<<<<<< Updated upstream
     
     public static String prochaineLigne() {
     	return scanner.nextLine();
+=======
+
+    public static String nextLine() {
+        return scanner.nextLine();
+>>>>>>> Stashed changes
     }
 }
