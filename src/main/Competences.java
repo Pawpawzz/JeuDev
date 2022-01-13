@@ -46,7 +46,7 @@ public class Competences {
         boolean piege = false;
 
 		int valeurACote = OutilsTableaux.valeurCaseACote(terrain, direction, position);
-		if(valeurACote <= Constantes.VALEUR_MIN_ENNEMI || valeurACote >= Constantes.VALEUR_MAX_ENNEMI) {
+		if(valeurACote < Constantes.VALEUR_MIN_ENNEMI || valeurACote > Constantes.VALEUR_MAX_ENNEMI) {
 			do {
 				switch (direction) {
 					case 'd':

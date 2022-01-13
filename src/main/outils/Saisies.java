@@ -31,6 +31,11 @@ public class Saisies {
         return choix;
     }
 
+    /**
+     * Fonction permettant de savoir un déplacement est sous la forme lx (l est une lettre parmis h, b, g, d) et x est un nombre
+     * @param deplacement
+     * @return true si valide, false si non valide
+     */
     public static boolean deplacementSyntaxeValide(String deplacement) {
         char directionDeplacement = deplacement.charAt(0);
 
@@ -42,6 +47,7 @@ public class Saisies {
         else
             return false;
     }
+
 
     public static boolean directionValide(String valeurSaisie) {
         if(valeurSaisie != "") {
