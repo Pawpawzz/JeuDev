@@ -77,9 +77,7 @@ public class Personnages {
 		}
 
 		terrain[posLigne][posColonne] = ancienneValeur;
-		//AffichageTerrain.afficher();
 		return new int[] {posLigne, posColonne};
 	}
-	
 
 }

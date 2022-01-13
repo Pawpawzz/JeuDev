@@ -1,6 +1,7 @@
 package main;
 
 import main.affichage.Menu;
+import main.outils.OutilsEntites;
 
 import static main.Constantes.VALEUR_ARCHER;
 import static main.Constantes.VALEUR_TAUREAU;
@@ -20,7 +21,7 @@ public class ControlleurCombat {
         int tour = 1;
         boolean evenementFrappe = false;
 
-        while(Joueur.estEnVie()) {
+        while(Joueur.estEnVie() && OutilsEntites.recupererToutesLesPositionEnnemis().size() > 0) {
             System.out.println("Tour n°" + tour);
             if (evenementFrappe) {
             	Evenement.finEvent();
@@ -40,7 +41,12 @@ public class ControlleurCombat {
             tour+=1;
         }
 
-        System.out.println("Tu as perdu");
+        if(Joueur.estEnVie())
+            System.out.println("Vous avez gagné");
+        else
+            System.out.println("Vous avez perdu");
 
-    }
+
+
+        }
 }

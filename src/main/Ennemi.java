@@ -13,14 +13,12 @@ public class Ennemi {
 	
     public static void effectuerTourEnnemis() {
         int[][] terrain = Terrain.recupererTerrain();
-
         int[] positionJoueur = Joueur.positionJoueur();
-
         int[][] cheminAParcourir = Chemin.trouverChemin(Terrain.recupererTerrain());
 
 
         //On récupère tout les ennemis pour éviter que la boucle répertorie plusieurs fois le même ennemi
-        ArrayList<int[]> toutLesEnnemis = recupererToutesLesPositionEnnemis();
+        ArrayList<int[]> toutLesEnnemis = OutilsEntites.recupererToutesLesPositionEnnemis();
 
 
         for(int indexEnnemi = 0; indexEnnemi < toutLesEnnemis.size(); indexEnnemi++) {
@@ -79,25 +77,6 @@ public class Ennemi {
         }
 
 
-    }
-
-    public static ArrayList<int[]> recupererToutesLesPositionEnnemis() {
-        int[][] terrain = Terrain.recupererTerrain();
-        ArrayList<int[]> positionEnnemis = new ArrayList<int[]>();
-
-        for(int caseY = 0; caseY < terrain.length; caseY++) {
-            for(int caseX = 0; caseX < terrain.length; caseX++) {
-                int valeurCase = terrain[caseY][caseX];
-                if(valeurCase >= Constantes.VALEUR_MIN_ENNEMI && valeurCase <= Constantes.VALEUR_MAX_ENNEMI) {
-                    int[] positionEnnemi = new int[2];
-                    positionEnnemi[1] = caseX;
-                    positionEnnemi[0] = caseY;
-                    positionEnnemis.add(positionEnnemi);
-                }
-            }
-        }
-
-        return positionEnnemis;
     }
     
     public static int[] recupererEnnemis() {

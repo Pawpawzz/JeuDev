@@ -3,24 +3,6 @@ package main.outils;
 import static main.Constantes.VALEUR_MIN_ENNEMI;
 
 public class Chemin {
-    public static void main(String[] args) {
-        int dimension = 100;
-
-        
-        
-        int[][] terrain = new int[dimension][dimension];
-
-        //Position joueur
-        terrain[3][5] = 1;
-        terrain[1][1] = 1;
-        terrain[2][2] = 1;
-
-        terrain[50][50] = 5;
-
-        trouverChemin(terrain);
-    }
-
-
     public static void afficherTableau(int [][]tableau) {
         for(int x = 0; x < tableau.length; x++) {
             for(int y = 0; y < tableau[x].length; y++) {
@@ -38,10 +20,8 @@ public class Chemin {
         int nombreDeCases = dimension * dimension;
 
         for (int nbCase = 0; nbCase < nombreDeCases; nbCase++) {
-            //System.out.println("Nombre de cases " + nombreDeCases);
             for (int y = 0; y < terrainParcours.length; y++) {
                 for (int x = 0; x < terrainParcours[y].length; x++) {
-
                     int valeur = tabReferenciel[y][x];
 
                     if (valeur == 5)
@@ -62,8 +42,6 @@ public class Chemin {
         int caseX = position[1];
         int caseY = position[0];
 
-
-        int nombreDeCasesRemplis = 0;
         int valActuelle = terrainARemplir[caseY][caseX];
 
         if(caseY + 1 < terrainARemplir.length) {
