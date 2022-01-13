@@ -14,16 +14,16 @@ public class Caracteres {
         Caracteres.enregistrerCaractere(0, " ");
 
         Caracteres.enregistrerCaractere(Constantes.VALEUR_OBSTACLE, "◻️", true);
-        Caracteres.enregistrerCaractere(Constantes.VALEUR_PIEGE, "O", true);
+        Caracteres.enregistrerCaractere(Constantes.VALEUR_PIEGE, "O");
         //Caracteres.enregistrerCaractere(2, "P");
 
         Caracteres.enregistrerCaractere(Constantes.VALEUR_JOUEUR, "P");
 
         //Ennemis situé entre 10 et 20
         //Caracteres.enregistrerCaractere(Constantes.VALEUR_ARCHER, "\uD83C\uDFF9", true);
-        Caracteres.enregistrerCaractere(Constantes.VALEUR_ARCHER, "A", true);
+        Caracteres.enregistrerCaractere(Constantes.VALEUR_ARCHER, "A");
         //Caracteres.enregistrerCaractere(Constantes.VALEUR_TAUREAU, "\uD83D\uDC2E", true);
-        Caracteres.enregistrerCaractere(Constantes.VALEUR_TAUREAU, "T", true);
+        Caracteres.enregistrerCaractere(Constantes.VALEUR_TAUREAU, "T");
 
         Caracteres.enregistrerCaractere(VALEUR_AFFICHAGE_EVENEMENT, "X");
     }
