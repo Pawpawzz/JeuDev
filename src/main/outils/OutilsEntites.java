@@ -1,16 +1,7 @@
 package main.outils;
 
-<<<<<<< Updated upstream
 public class OutilsEntites {
 
-=======
-import main.Constantes;
-import main.Terrain;
-
-import java.util.ArrayList;
-
-public class OutilsEntites {
->>>>>>> Stashed changes
     public static int distanceEntreDeux(int premierePosition[], int secondePosition[]) {
         int distance1 = premierePosition[0] + premierePosition[1];
         int distance2 = secondePosition[0] + secondePosition[1];
@@ -53,23 +44,9 @@ public class OutilsEntites {
 
     }
 
-    public static ArrayList<int[]> recupererToutesLesPositionEnnemis() {
-        int[][] terrain = Terrain.recupererTerrain();
-        ArrayList<int[]> positionEnnemis = new ArrayList<int[]>();
 
-        for(int caseY = 0; caseY < terrain.length; caseY++) {
-            for(int caseX = 0; caseX < terrain.length; caseX++) {
-                int valeurCase = terrain[caseY][caseX];
-                if(valeurCase >= Constantes.VALEUR_MIN_ENNEMI && valeurCase <= Constantes.VALEUR_MAX_ENNEMI) {
-                    int[] positionEnnemi = new int[2];
-                    //System.out.println(String.format("J'ai trouvé un ennemi à [%o][%o]", caseY, caseX));
-                    positionEnnemi[1] = caseX;
-                    positionEnnemi[0] = caseY;
-                    positionEnnemis.add(positionEnnemi);
-                }
-            }
-        }
-
-        return positionEnnemis;
+    public static char[] trouverChemin() {
+        char[] chemin = new char[1];
+        return chemin;
     }
 }

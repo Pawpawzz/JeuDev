@@ -6,13 +6,6 @@ import main.outils.OutilsTableaux;
 import main.affichage.AffichagePersonnages;
 
 import java.util.ArrayList;
-<<<<<<< Updated upstream
-=======
-import java.util.List;
-
-import static main.Constantes.VALEUR_JOUEUR;
-import static main.outils.OutilsEntites.recupererToutesLesPositionEnnemis;
->>>>>>> Stashed changes
 
 public class Ennemi {
 
@@ -88,7 +81,6 @@ public class Ennemi {
 
     }
 
-<<<<<<< Updated upstream
     public static ArrayList<int[]> recupererToutesLesPositionEnnemis() {
         int[][] terrain = Terrain.recupererTerrain();
         ArrayList<int[]> positionEnnemis = new ArrayList<int[]>();
@@ -108,8 +100,6 @@ public class Ennemi {
         return positionEnnemis;
     }
     
-=======
->>>>>>> Stashed changes
     public static int[] recupererEnnemis() {
     	return tabEnnemis;
     }
