@@ -42,8 +42,4 @@ public class Saisies {
         else
             return false;
     }
-    
-    public static String prochaineLigne() {
-    	return scanner.nextLine();
-    }
 }

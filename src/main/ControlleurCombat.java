@@ -23,10 +23,8 @@ public class ControlleurCombat {
 
         while(Joueur.estEnVie() && OutilsEntites.recupererToutesLesPositionEnnemis().size() > 0) {
             System.out.println("Tour n°" + tour);
-            if (evenementFrappe) {
+            if (evenementFrappe)
             	Evenement.finEvent();
-                evenementFrappe = false;
-            }
             if (tour%TOUR_EVENEMENT == 0) {
             	Evenement.debutEvent();
             	evenementFrappe = true;

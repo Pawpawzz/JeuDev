@@ -18,7 +18,9 @@ public class Joueur {
 		int longueur = Convertisseur.recupererValeurNumerique(directionLongueur.substring(1));
 		int i = 0;
 
+		System.out.println("[DEBUG] La longueur est de " + longueur);
 		while (Personnages.deplacementPossible(direction, position) && i < longueur) {
+			System.out.println("[DEBUG] Le déplacement est possible");
             Personnages.deplacementUneCase(direction, position);
 			position = Joueur.positionJoueur();
 			i += 1;
